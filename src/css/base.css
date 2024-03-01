@@ -1,69 +1,117 @@
+body.dark {
+  --icon-fill-color: #fff;
+}
+
 :root {
-    /* Fonts */
-    font-family: 'DM Sans', sans-serif;
-    font-size: 18px;
-    font-weight: normal;
-    font-weight: 400;
-    line-height: 1.29;
-    letter-spacing: -0.02em;
-    
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-    
-    /* Font's colors */
-    --main-text: #FFFFFF;
-    --accent-text: #BEA69E;
-    --button-text: #121212;
-    --privacy-text: rgba(255, 255, 255, 0.50);
-  
-    /* Background's colors */
-    --main-bkgd: #121212;
-    --second-bkgd: #1D1D1D;
-    --accent-bkgd: #BEA69E;
-    --camera-fill: #BEA69E66;
-    --button-bkgd: #FFFFFF;
-    --backdrop-bkgd: rgba(18, 18, 18, 0.40);
-  
-    /* Border's colors */
-    --main-border: rgba(255, 255, 255, 0.20);
-    --focus-border: rgba(255, 255, 255, 0.50);
-    --bkgd-border: rgba(255, 255, 255, 0.70);
+  --icon-fill-color: #000;
+  --brand-color: #4f2ee8;
+  --accent-color: #eac645;
+  --text-color: #111;
+  --border: #111;
+  --main-background: #f3f3f3;
+  --category: rgba(17, 17, 17, 0.6);
+  --active-category: #4f2ee8;
+  --second-text-card: #b4afaf;
+  --fund-background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+  --menu-background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+  --default-text-shop-list: rgba(0, 0, 0, 0.6);
+  --shop-list-card-border: rgba(79, 46, 232, 0.4);
+  --start-backdrop-gradient-bg: rgba(204, 236, 231, 0.5);
+  --start-backdrop-gradient-filter: blur(539.7910766601562px);
+  --start-modal-bg: #f6f6f6;
+  --start-modal-text-border: #111;
+  --start-modal-btn-bg: #111;
+  --start-modal-btn-text: #f3f3f3;
+  --popup-bg: #fff;
+  --popup-filter-shop: grayscale(100%);
+  --popup-filter-shop-amazon: grayscale(100%);
+  --popup-filter-shop-hover: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+  --popup-message: rgba(17, 17, 17, 0.5);
+  --popup-backdrop: rgba(17, 17, 17, 0.4);
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.dark {
+  --text-color: #fff;
+  --border: #fff;
+  --main-background: #202024;
+  --category: rgba(255, 255, 255, 0.6);
+  --active-category: #eac645;
+  --default-text-shop-list: rgba(255, 255, 255, 0.6);
+  --start-modal-bg: #202024;
+  --start-modal-text-border: #f6f6f6;
+  --start-modal-btn-bg: #f6f6f6;
+  --start-modal-btn-text: #202024;
+  --popup-bg: #202024;
+  --popup-filter-shop-amazon: brightness(0) invert(1);
+  --popup-filter-shop-hover: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+  --popup-message: rgba(255, 255, 255, 0.5);
 }
 
 body {
-    color: var(--main-text);
-    background-color: var(--main-bkgd);
+  font: 400 14px/1.29 'DM Sans', sans-serif;
+  letter-spacing: -0.56px;
+  color: var(--text-color);
+  background-color: var(--main-background);
 }
 
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+header {
+  height: 64px;
+  margin-bottom: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+    height: 72px;
+  }
+}
+
+svg {
+  color: currentColor;
+}
+
+.scroll-lock {
+  overflow: hidden;
 }
 
 .container {
-    width: 100%;
-    padding: 0 20px;
-    margin: 0 auto;
+  margin-inline: auto;
+  display: flex;
+  padding-inline: 15px;
+  max-width: 375px;
+  gap: 40px;
+}
+
+@media only screen and (min-width: 375px) {
+  .container {
+    padding-inline: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-inline: 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding-inline: 24px;
+  }
+}
+
+@media only screen and (max-width: 1439px) {
+  .library .container {
+    flex-direction: column;
+    gap: 100px;
+  }
 }
