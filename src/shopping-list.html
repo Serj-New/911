@@ -2,16 +2,84 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping List</title>
+    <link rel="stylesheet" href="./css/shopping-list.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load ="partials/header.html" />
+    <header class="shop-list-header">
+      <load src="partials/header.html" />
+    </header>
     <main>
-      <load ="partials/partners.html" />
-      
+      <section class="shop-list-section">
+        <div class="container">
+          <div class="list">
+            <load src="partials/partners.html" />
+          </div>
+
+          <div class="shopping-list">
+            <h1 class="shop-list-title">
+              Shopping <span class="shop-list-span">List</span>
+            </h1>
+            <div class="shop-list-empty is-hidden">
+              <p class="shop-list-empty-message">
+                This page is empty, add some books and proceed to order.
+              </p>
+              <picture class="shop-list-empty-img">
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./img/shopping-list/empty-basket_desktop_tab@1x.avif 1x,
+                    ./img/shopping-list/empty-basket_desktop_tab@2x.avif 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./img/shopping-list/empty-basket_desktop_tab@1x.png 1x,
+                    ./img/shopping-list/empty-basket_desktop_tab@2x.png 2x
+                  "
+                  type="image/png"
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    ./img/shopping-list/empty-basket_mob@1x.avif 1x,
+                    ./img/shopping-list/empty-basket_mob@2x.avif 2x
+                  "
+                  type="image/avif"
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    ./img/shopping-list/empty-basket_mob@1x.png 1x,
+                    ./img/shopping-list/empty-basket_mob@2x.png 2x
+                  "
+                  type="image/png"
+                />
+                <img
+                  class="shop-list-empty-img"
+                  src="./img/shopping-list/empty-basket_mob@1x.png"
+                  alt="Books image"
+                  width="265"
+                  height="198"
+                />
+              </picture>
+            </div>
+            <ul class="shop-list card-list shop-list-js"></ul>
+            <div id="pagination" class="tui-pagination"></div>
+          </div>
+        </div>
+      </section>
     </main>
-    <load ="partials/footer.html" />
+
+    <div class="start-backdrop is-hidden">
+      <load src="partials/modal.html" />
+    </div>
+    <load src="partials/footer.html" />
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
