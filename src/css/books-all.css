@@ -126,3 +126,83 @@
   text-transform: uppercase;
   color: var(--active-category);
 }
+
+/* --------------------------MAIN PAGE RIGHT aka BOOKS--------------------- */
+.main-page-title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.08333;
+  letter-spacing: -0.04em;
+  color: #111;
+  margin-bottom: 40px;
+}
+.main-page-title-span {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.08333;
+  letter-spacing: -0.04em;
+  color: #4f2ee8;
+}
+.main-page-book-title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71429;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #b4afaf;
+  margin-bottom: 18px;
+}
+.main-page-books-render {
+  margin-bottom: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24;
+}
+.main-page-book-render-item {
+  width: 180px;
+  height: 306px;
+  padding: 0;
+}
+.book-image {
+  border-radius: 8px;
+  width: 180px;
+  height: 256px;
+  margin-bottom: 14px;
+}
+.book-title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.125;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 4px;
+}
+.book-author {
+  font-family: 'DM Sans', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: -0.04em;
+  color: #b4afaf;
+}
+.button-see-more {
+  border: 2px solid #4f2ee8;
+  border-radius: 40px;
+  padding: 14px 28px;
+  height: 46px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #111;
+  background-color: #fff;
+}
+/* -------------------------- END MAIN PAGE RIGHT aka BOOKS--------------------- */
