@@ -12,7 +12,7 @@ async function renderShopList(bookIdList) {
     if (bookIdList.length === 0) {
         refs.shopListEmptElem.classList.remove("is-hidden")
     } else {
-        refs.shopListEmptElem.classList.add("is-hidden")
+        refs.shopListEmptElem.classList.add("is-hidden");
         const markup = await shopListTemplate(bookIdList);
         refs.shopListDivElem.insertAdjacentHTML("beforeend", `<ul>${markup}</ul>`);
     }
