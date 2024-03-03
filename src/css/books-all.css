@@ -128,6 +128,13 @@
 }
 
 /* --------------------------MAIN PAGE RIGHT aka BOOKS--------------------- */
+.main-page-right {
+  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 .main-page-title {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
@@ -137,6 +144,7 @@
   color: #111;
   margin-bottom: 40px;
 }
+
 .main-page-title-span {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
@@ -153,13 +161,13 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #b4afaf;
-  margin-bottom: 18px;
+  margin-bottom: 40px;
 }
 .main-page-books-render {
   margin-bottom: 32px;
   display: flex;
   flex-wrap: wrap;
-  gap: 24;
+  gap: 24px;
 }
 .main-page-book-render-item {
   width: 180px;
@@ -205,4 +213,5 @@
   color: #111;
   background-color: #fff;
 }
+
 /* -------------------------- END MAIN PAGE RIGHT aka BOOKS--------------------- */
