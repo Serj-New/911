@@ -1,3 +1,5 @@
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
 import { getBooksFromLocalStorage } from './local-storage-utils.js'; 
 
 const itemsPerPage = 10; 
