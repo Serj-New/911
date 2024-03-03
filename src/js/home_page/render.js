@@ -23,54 +23,16 @@ import {
   getBookById,
 } from '../home_page/books-api.js';
 
-function createBookListMarkup(books) {
-  return books
-    .map(book => {
-      return `
-      <li class="main-page-book-render-item">
-        <a class="book-link" href="#">
-          <img class="book-image" src="${book.book_image}" alt="${book.title}" />
-        </a>
-        <h2 class="book-title">${book.title}</h2>
-        <p class="book-author">${book.author}</p>
-      </li>
-    `;
-    })
-    .join('');
-}
+/*********************** Рендер головної сторінки v.2.0 **********************************/
 
-async function renderBooks() {
-  const bookCategories = await getBookCategoryList();
+const bookList = document.querySelector('.main-page-book');
+const listBooksByCategory = document.querySelector('.main-page-right');
 
-  // Отримання категорій книг та відображення їх
-  for (const category of bookCategories) {
-    const books = await getBookByCategory(category.list_name);
-    const limitedBooks = getLimitedBooks(books); // Отримуємо обмежену кількість книг відповідно до розміру екрану
+window.addEventListener('resize', () => {
+  bookList.innerHTML = '';
+  onPageLoad();
+});
 
-    const bookListMarkup = createBookListMarkup(limitedBooks);
-
-    // Створення контейнера для категорії та списку книг
-    const categoryContainer = document.createElement('div');
-    categoryContainer.className = 'category-container';
-
-    const categoryElement = document.createElement('li');
-    categoryElement.className = 'main-page-book-title-list';
-    categoryElement.innerHTML = category.list_name;
-
-    const bookListElement = document.createElement('ul');
-    bookListElement.className = 'main-page-books-render';
-    bookListElement.innerHTML = bookListMarkup;
-
-    // Додавання категорії та списку книг до контейнера
-    categoryContainer.appendChild(categoryElement);
-    categoryContainer.appendChild(bookListElement);
-
-    // Додавання контейнера на сторінку
-    document.querySelector('.main-page-book').appendChild(categoryContainer);
-  }
-}
-
-// Функція для обмеження кількості книг в залежності від розміру екрану
 function getLimitedBooks(books) {
   if (window.innerWidth < 768) {
     return books.slice(0, 1); // Для мобільних: лише 1 книга в категорії
@@ -81,12 +43,82 @@ function getLimitedBooks(books) {
   }
 }
 
-// Виклик функції для відображення списку книг
-renderBooks();
+export async function clickOnAllCategories() {
+  const topBooks = await getTopBooks();
+  let result = '';
+  result += `<h2 class="main-page-title">Best Sellers <span class="main-page-title-span">Books</span></h2>
+  <ul class="main-page-book">`;
+  listBooksByCategory.innerHTML = result;
+  renderBookListOnMain(topBooks);
+  // onPageLoad();
+  // return result;
+}
 
-// Додавання обробника подій для відслідковування змін розміру вікна
-window.addEventListener('resize', () => {
-  // При зміні розміру вікна перерендерюємо список книг
-  document.querySelector('.main-page-book').innerHTML = ''; // Очищаємо контейнер перед перерендерингом
-  renderBooks();
-});
+function createBookListOnMain(bookCard) {
+  let limitedBooks = getLimitedBooks(bookCard.books);
+  let result = `
+    <li class="main-page-book-title">${bookCard.list_name}</li>
+    <ul class="main-page-books-render">`;
+  limitedBooks.forEach(book => {
+    result += `
+         <li class="main-page-book-render-item">
+          <a class="book-link" href="#">
+            <img class="book-image" src="${book.book_image}" alt="#" />
+          </a>
+          <h2 class="book-title">${book.title}</h2>
+          <p class="book-author">${book.author}</p>
+        </li>`;
+  });
+  result += `</ul><div>
+    <button class="button-see-more" type="button">See more</button>
+  </div>`;
+  return result;
+}
+
+export async function renderBookListOnMain(bookCard) {
+  const markup = bookCard.map(createBookListOnMain).join(``);
+  bookList.insertAdjacentHTML('afterbegin', markup);
+}
+
+/********************************** */
+
+async function onPageLoad() {
+  const topBooks = await getTopBooks();
+  renderBookListOnMain(topBooks);
+}
+onPageLoad();
+
+//********************** Рендер при кліку на категорії ***********************************/
+
+function bookListByCategory(booksByCategory) {
+  const categoryName = booksByCategory[0].list_name;
+  const words = categoryName.split(' ');
+  const firstPart = words.slice(0, -1).join(' ');
+  const lastWord = words[words.length - 1];
+
+  listBooksByCategory.innerHTML = '';
+  let result = '';
+
+  result += `<h2 class="main-page-title">${firstPart}<span class="main-page-title-span"> ${lastWord}</span></h2>`;
+  result += '<ul class="main-page-books-render">';
+
+  booksByCategory.forEach(book => {
+    result += `
+      <li class="main-page-book-render-item">
+        <a class="book-link" href="#">
+          <img class="book-image" src="${book.book_image}" alt="#" />
+        </a>
+        <h2 class="book-title">${book.title}</h2>
+        <p class="book-author">${book.author}</p>
+      </li>`;
+  });
+  result += `</ul>`;
+
+  return result;
+}
+
+export function renderBookListByCategory(booksByCategory) {
+  bookList.innerHTML = '';
+  const markup = bookListByCategory(booksByCategory);
+  listBooksByCategory.insertAdjacentHTML('afterbegin', markup);
+}
