@@ -75,6 +75,22 @@ function changeTheme() {
 checkbox.addEventListener('change', changeTheme);
 headBtn.addEventListener('click', openStarModal);
 
+$(document).ready(function () {
+  
+  $('.btn-footer.team-shark').click(function () {
+ 
+    $('#modal-container').removeAttr('class').addClass('one');
+    $('body').addClass('modal-active');
+  });
+
+ 
+  $('#modal-container').click(function () {
+    $(this).addClass('out');
+    $('body').removeClass('modal-active');
+  });
+});
+
+
 // **=========================FOOTER=============================
 
 // import * as basicLightbox from 'basiclightbox';
