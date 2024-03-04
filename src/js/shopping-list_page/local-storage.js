@@ -1,43 +1,31 @@
 import { getBookById } from '../home_page/books-api';
 
-// const addButton = document.querySelector('.add-button-sh');
-// const delButton = document.querySelector('');
-// const getButton = document.querySelector('.site-nav__link');
-
-// addButton.addEventListener('click', handleAddBtnClick);
-// delButton.addEventListener('click', handleDelBtnClick);
-// getButton.addEventListener('click', handleGetBtnClick);
-
 // const bookId = '643282b2e85766588626a112';
+// const bookId = '643282b1e85766588626a081';
+// const bookId = '643282b1e85766588626a0b2';
 
-export async function handleAddBtnClick(bookId) {
+export async function handleAddBtnClick() {
   const data = await getBookById(bookId);
   saveToLS(data._id, data);
 }
 
-export function handleDelBtnClick(bookId) {
+export function handleDelBtnClick() {
   localStorage.removeItem(bookId);
 }
 
 export function handleGetBtnClick() {
   const itemCount = localStorage.length;
-  const uploadedBooks = [];
+  const downloadedBooks = [];
 
   for (let i = 0; i < itemCount; i++) {
     const key = localStorage.key(i);
     const value = loadFromLS(key);
 
     if (value._id) {
-      uploadedBooks.push(value);
+      downloadedBooks.push(value);
     }
   }
-
-  if (uploadedBooks.length) {
-    console.log(uploadedBooks);
-    return uploadedBooks;
-  } else {
-    console.log('shoppingList is empty');
-  }
+    return downloadedBooks;
 }
 
 function saveToLS(key, value) {
