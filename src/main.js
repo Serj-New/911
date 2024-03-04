@@ -6,6 +6,8 @@ import './js/partners';
 
 import './js/shopping-list_page/shopping-list';
 
+import './js/scroll-up';
+
 // **=============Зміна теми======================================
 
 const checkbox = document.querySelector('input[type="checkbox"]');

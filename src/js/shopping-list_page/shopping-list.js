@@ -3,6 +3,7 @@ import { getBookById } from '../home_page/books-api';
 const refs = {
     shopListEmptElem: document.querySelector(".shop-list-empty"),
     shopListDivElem: document.querySelector(".shopping-list"),
+    pageHeader: document.querySelector(".header-home"),
 }
 
 const bookIdList = ["643282b1e85766588626a081", "643282b1e85766588626a0b2", "643282b2e85766588626a112"];//замінити потім
@@ -50,3 +51,7 @@ async function bookTemplate(book) {
         </div>
     </li>`;
 }
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    refs.pageHeader.dataset.pageName = 'shopping-list';
+});

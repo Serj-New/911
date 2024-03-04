@@ -152,7 +152,9 @@ input[type='checkbox']:checked ~ .check::after {
 }
 
 .sign-up-button {
-  display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .sign-up-button_text {

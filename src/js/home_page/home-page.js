@@ -13,6 +13,7 @@ import {
 
 const refs = {
   category: document.querySelector('.categories-elements'),
+  pageHeader: document.querySelector(".header-home"),
 };
 
 init();
@@ -42,3 +43,7 @@ async function handleCategoryClick(event) {
     renderBookListByCategory(booksByCategory, category);
   }
 }
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  refs.pageHeader.dataset.pageName = 'home';
+});
