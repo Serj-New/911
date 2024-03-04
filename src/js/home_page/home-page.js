@@ -5,6 +5,7 @@ import {
 } from '../home_page/books-api';
 import {
   renderCategoryList,
+  currentCategory,
   onPageLoad,
   renderBookListByCategory,
 } from './render';
@@ -34,9 +35,11 @@ async function handleCategoryClick(event) {
   const category = event.target.textContent.trim();
   if (category === 'All categories') {
     onPageLoad();
+    currentCategory(event.target.dataset.category);
   } else {
     const booksByCategory = await getBookByCategory(category);
     renderBookListByCategory(booksByCategory, category);
+    currentCategory(event.target.dataset.category);
   }
 }
 

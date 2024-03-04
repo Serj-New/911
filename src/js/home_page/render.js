@@ -2,16 +2,30 @@
 
 export async function renderCategoryList(fetch) {
   let markup = `<li class="categories-list">
-                  <a class="category-link active" href="#">All categories</a>
+                  <a class="category-link current-category" data-category="All Categories" href="#">All categories</a>
                 </li>`;
 
   fetch.forEach(({ list_name }) => {
     markup += `<li class="categories-list">
-                 <a class="category-link" href="#">${list_name}</a>
+                 <a class="category-link" data-category="${list_name}" href="#">${list_name}</a>
                </li>`;
   });
 
   return markup;
+}
+
+export async function currentCategory(value) {
+  const currentCategoryElement = document.querySelector('.current-category');
+  if (currentCategoryElement) {
+    currentCategoryElement.classList.remove('current-category');
+  } 
+  
+  const newCategoryElement = document.querySelector(`a[data-category="${value}"]`);
+  if (newCategoryElement) {
+    newCategoryElement.classList.add('current-category');
+  } else {
+    console.error(`Element with category "${value}" not found.`);
+  }
 }
 
 //*****************Рендеринг головної сторінки*****************//
