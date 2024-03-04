@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body>
-    <load ="partials/header.html" />
-    <main>
-      <section class="library">
-        <div class="container">
-          <div class="list">
-            <load src="partials/aside.html" />
-            <load src="partials/partners.html" />
-          </div>
-        </div>
-      </section>
 
-      <!-- **=== -->
-      <load ="partials/books.html" />
-      <load ="partials/modal.html" />
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookshelf 911</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+  <body>
+  <load src="partials/header.html" />
+  <main>
+    <section class="library">
+      <div class="container">
+        <div class="list">
+          <load src="partials/aside.html" />
+          <load src="partials/partners.html" />
+        </div>
+        <div class="main-page-div">
+          <load src="partials/books.html" />
+          <load src="partials/modal.html" />
+        </div>
+      </div>
+
+      <load src="partials/scroll-up.html" />
+    </section>
     </main>
+
     <div class="start-backdrop start-hidden">
       <load src="partials/modal.html" />
     </div>
 
-    <load ="partials/footer.html" />
+    <load src="partials/footer.html" />
     <script type="module" src="./main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </body>
 </html>
+

@@ -1,0 +1,28 @@
+.scroll-up {
+    /* position: absolute; */
+    width: 54px;
+    height: 54px;
+    background-color: #4f2ee8;
+    box-shadow: 0 0 10px 3px #4f2ee84d;
+    border: none;
+    border-radius: 50%;
+    z-index: 8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    transition: all 500ms ease-in-out;
+}
+
+.scroll-up:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 10px #4f2ee84d;
+}
+  
+.icon-skroll-up {
+  fill: #fff;
+  width: 24px;
+  height: 24px;
+}

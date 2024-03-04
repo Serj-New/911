@@ -19,6 +19,7 @@
     #644fe8 0%,
     var(--brand-color) 30%
   );
+  z-index: 5;
 }
 
 @media only screen and (min-width: 1440px) {

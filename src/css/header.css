@@ -95,14 +95,14 @@
 .site-nav__logo {
   width: 20px;
   height: 20px;
-  fill: var(--black-color);
+  stroke: var(--black-color);
   margin-left: 4px;
 }
 
 .site-nav__logo_active {
   width: 20px;
   height: 20px;
-  fill: #111111;
+  stroke: #111111;
   margin-left: 4px;
 }
 
@@ -152,7 +152,9 @@ input[type='checkbox']:checked ~ .check::after {
 }
 
 .sign-up-button {
-  display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .sign-up-button_text {
@@ -162,7 +164,9 @@ input[type='checkbox']:checked ~ .check::after {
   letter-spacing: -0.04em;
   color: #ffffff;
 }
-
+.sign-up-button_icon {
+  stroke: #eac645;
+}
 .burger-menu {
   width: 28px;
   height: 28px;
@@ -174,11 +178,11 @@ input[type='checkbox']:checked ~ .check::after {
 .burger-menu__icon {
   width: 28px;
   height: 28px;
-  fill: var(--black-color);
+  stroke: #111111;
 }
 
 .burger-menu__icon:hover {
-  fill: #4f2ee8;
+  stroke: #4f2ee8;
 }
 
 .mobile-menu-container {
@@ -203,7 +207,7 @@ input[type='checkbox']:checked ~ .check::after {
 }
 
 .burger-container {
-  background-image: url(../images/);
+  background-image: url(img/icons.svg#icon-burger-menu);
   background-position: bottom;
   background-repeat: no-repeat;
   padding: 0;
@@ -216,7 +220,7 @@ input[type='checkbox']:checked ~ .check::after {
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   .burger-container {
-    background-image: url(../images/);
+    background-image: url(img/icons.svg#icon-burger-menu);
     background-size: contain;
   }
 }
@@ -242,11 +246,11 @@ input[type='checkbox']:checked ~ .check::after {
 .mobile-menu__icon {
   width: 28px;
   height: 28px;
-  fill: var(--black-color);
+  stroke: var(--black-color);
 }
 
 .mobile-menu__icon:hover {
-  fill: #4f2ee8;
+  stroke: #4f2ee8;
 }
 
 .sign-up-button-burger {

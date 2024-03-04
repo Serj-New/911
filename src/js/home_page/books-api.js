@@ -1,15 +1,22 @@
 import axios from 'axios';
 
+const BASE_URL = 'https://books-backend.p.goit.global/books/';
+
 export async function getBookCategoryList() {
-  const BASE_URL = 'https://books-backend.p.goit.global/books/';
   const END_POINT = 'category-list ';
   const url = BASE_URL + END_POINT;
   const response = await axios.get(url);
   return response.data;
 }
 
+export async function getTopBooks() {
+  const END_POINT = 'top-books';
+  const url = BASE_URL + END_POINT;
+  const response = await axios.get(url);
+  return response.data;
+}
+
 export async function getBookByCategory(selectedCategory) {
-  const BASE_URL = 'https://books-backend.p.goit.global/books/';
   const END_POINT = 'category';
   const url = BASE_URL + END_POINT;
 
@@ -21,19 +28,9 @@ export async function getBookByCategory(selectedCategory) {
   return response.data;
 }
 
-export async function getTopBooks() {
-  const BASE_URL = 'https://books-backend.p.goit.global/books/';
-  const END_POINT = 'top-books';
-  const url = BASE_URL + END_POINT;
-  const response = await axios.get(url);
-  return response.data;
-}
-
-
 export async function getBookById(bookId) {
-  const BASE_URL = 'https://books-backend.p.goit.global/books/';
   const END_POINT = bookId;
   const url = BASE_URL + END_POINT;
-  const response = await axios.get(url,);
+  const response = await axios.get(url);
   return response.data;
 }
