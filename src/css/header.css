@@ -95,14 +95,14 @@
 .site-nav__logo {
   width: 20px;
   height: 20px;
-  fill: var(--black-color);
+  stroke: var(--black-color);
   margin-left: 4px;
 }
 
 .site-nav__logo_active {
   width: 20px;
   height: 20px;
-  fill: #111111;
+  stroke: #111111;
   margin-left: 4px;
 }
 
@@ -164,22 +164,27 @@ input[type='checkbox']:checked ~ .check::after {
   letter-spacing: -0.04em;
   color: #ffffff;
 }
-
+.sign-up-button_icon {
+  stroke: #eac645;
+}
 .burger-menu {
   width: 28px;
   height: 28px;
   background-color: transparent;
   margin-left: 14px;
+  padding: 0;
+  border: none;
+  outline: none;
 }
 
 .burger-menu__icon {
   width: 28px;
   height: 28px;
-  fill: var(--black-color);
+  stroke: #111111;
 }
 
 .burger-menu__icon:hover {
-  fill: #4f2ee8;
+  stroke: #4f2ee8;
 }
 
 .mobile-menu-container {
@@ -243,11 +248,11 @@ input[type='checkbox']:checked ~ .check::after {
 .mobile-menu__icon {
   width: 28px;
   height: 28px;
-  fill: var(--black-color);
+  stroke: var(--black-color);
 }
 
 .mobile-menu__icon:hover {
-  fill: #4f2ee8;
+  stroke: #4f2ee8;
 }
 
 .sign-up-button-burger {
