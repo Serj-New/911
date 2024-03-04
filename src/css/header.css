@@ -168,6 +168,7 @@ input[type='checkbox']:checked ~ .check::after {
   height: 28px;
   background-color: transparent;
   margin-left: 14px;
+  border: none;
 }
 
 .burger-menu__icon {
