@@ -5,9 +5,7 @@ import {
 } from '../home_page/books-api';
 import {
   renderCategoryList,
-  renderBookListOnMain,
-  clickOnAllCategories,
-  // createBookListMarkup,
+  onPageLoad,
   renderBookListByCategory,
 } from './render';
 
@@ -35,11 +33,9 @@ async function handleCategoryClick(event) {
   event.preventDefault();
   const category = event.target.textContent.trim();
   if (category === 'All categories') {
-    clickOnAllCategories();
+    onPageLoad();
   } else {
-    // console.log(category);
     const booksByCategory = await getBookByCategory(category);
-    // console.log(booksByCategory);
     renderBookListByCategory(booksByCategory, category);
   }
 }

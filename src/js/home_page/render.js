@@ -23,13 +23,10 @@ import {
   getBookById,
 } from '../home_page/books-api.js';
 
-/*********************** Рендер головної сторінки v.2.0 **********************************/
-
-const bookList = document.querySelector('.main-page-book');
 const listBooksByCategory = document.querySelector('.main-page-right');
 
 window.addEventListener('resize', () => {
-  bookList.innerHTML = '';
+  listBooksByCategory.innerHTML = '';
   onPageLoad();
 });
 
@@ -43,19 +40,9 @@ function getLimitedBooks(books) {
   }
 }
 
-export async function clickOnAllCategories() {
-  const topBooks = await getTopBooks();
-  let result = '';
-  result += `<h2 class="main-page-title">Best Sellers <span class="main-page-title-span">Books</span></h2>
-  <ul class="main-page-book">`;
-  listBooksByCategory.innerHTML = result;
-  renderBookListOnMain(topBooks);
-  // onPageLoad();
-  // return result;
-}
-
 function createBookListOnMain(bookCard) {
   let limitedBooks = getLimitedBooks(bookCard.books);
+  let catName = bookCard.list_name;
   let result = `
     <li class="main-page-book-title">${bookCard.list_name}</li>
     <ul class="main-page-books-render">`;
@@ -70,21 +57,28 @@ function createBookListOnMain(bookCard) {
         </li>`;
   });
   result += `</ul><div>
-    <button class="button-see-more" type="button">See more</button>
+    <button class="button-see-more" type="button" data-catname="${catName}">See more</button>
   </div>`;
   return result;
 }
 
 export async function renderBookListOnMain(bookCard) {
   const markup = bookCard.map(createBookListOnMain).join(``);
-  bookList.insertAdjacentHTML('afterbegin', markup);
+  const bookList = document.querySelector('.main-page-book');
+  bookList.insertAdjacentHTML('beforeend', markup);
 }
 
 /********************************** */
 
-async function onPageLoad() {
+export async function onPageLoad() {
+  listBooksByCategory.innerHTML = '';
+  let result = '';
+  result += `<h2 class="main-page-title">Best Sellers <span class="main-page-title-span">Books</span></h2>
+  <ul class="main-page-book"></ul>`;
+  listBooksByCategory.insertAdjacentHTML('afterbegin', result);
   const topBooks = await getTopBooks();
-  renderBookListOnMain(topBooks);
+  await renderBookListOnMain(topBooks);
+  onSeeMoreBtnClick();
 }
 onPageLoad();
 
@@ -95,8 +89,6 @@ function bookListByCategory(booksByCategory) {
   const words = categoryName.split(' ');
   const firstPart = words.slice(0, -1).join(' ');
   const lastWord = words[words.length - 1];
-
-  listBooksByCategory.innerHTML = '';
   let result = '';
 
   result += `<h2 class="main-page-title">${firstPart}<span class="main-page-title-span"> ${lastWord}</span></h2>`;
@@ -113,12 +105,23 @@ function bookListByCategory(booksByCategory) {
       </li>`;
   });
   result += `</ul>`;
-
   return result;
 }
 
 export function renderBookListByCategory(booksByCategory) {
-  bookList.innerHTML = '';
+  listBooksByCategory.innerHTML = '';
   const markup = bookListByCategory(booksByCategory);
   listBooksByCategory.insertAdjacentHTML('afterbegin', markup);
+}
+
+/************************************ See more **********/
+function onSeeMoreBtnClick() {
+  const seeMoreBtn = document.querySelectorAll('.button-see-more');
+  seeMoreBtn.forEach(btn => {
+    btn.addEventListener('click', async function () {
+      const categoryElement = this.dataset.catname;
+      const booksByCategory = await getBookByCategory(categoryElement);
+      renderBookListByCategory(booksByCategory, categoryElement);
+    });
+  });
 }
