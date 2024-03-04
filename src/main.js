@@ -6,6 +6,8 @@ import './js/partners';
 
 import './js/shopping-list_page/shopping-list';
 
+import './js/scroll-up';
+
 // **=============Зміна теми======================================
 
 const checkbox = document.querySelector('input[type="checkbox"]');
@@ -72,6 +74,22 @@ function changeTheme() {
 
 checkbox.addEventListener('change', changeTheme);
 headBtn.addEventListener('click', openStarModal);
+
+$(document).ready(function () {
+  
+  $('.btn-footer.team-shark').click(function () {
+ 
+    $('#modal-container').removeAttr('class').addClass('one');
+    $('body').addClass('modal-active');
+  });
+
+ 
+  $('#modal-container').click(function () {
+    $(this).addClass('out');
+    $('body').removeClass('modal-active');
+  });
+});
+
 
 // **=========================FOOTER=============================
 

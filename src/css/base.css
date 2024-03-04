@@ -1,9 +1,11 @@
 body.dark {
   --icon-fill-color: #fff;
+  --icon-stroke-color: #fff;
 }
 
 :root {
   --icon-fill-color: #000;
+  --icon-stroke-color: #000;
   --brand-color: #4f2ee8;
   --accent-color: #eac645;
   --text-color: #111;
@@ -36,6 +38,10 @@ body.dark {
   --popup-filter-shop-hover: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
   --popup-message: rgba(17, 17, 17, 0.5);
   --popup-backdrop: rgba(17, 17, 17, 0.4);
+}
+
+.icon {
+  stroke: var(--icon-stroke-color);
 }
 
 .dark {

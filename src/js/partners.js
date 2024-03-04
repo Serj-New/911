@@ -51,7 +51,7 @@ import 'swiper/css';
 
 const charityElem = document.querySelector('.swiper-wrapper');
 const swiperBtnElem = document.querySelector('.support-swiper-btn');
-const arrowElem = document.querySelector('.small-arrow');
+const arrowElem = document.querySelector('.swiper-button-icon');
 
 swiperBtnElem.addEventListener('click', onBtnClick);
 

@@ -11,7 +11,7 @@ import {
 
 const refs = {
   category: document.querySelector('.categories-elements'),
-  pageHeader: document.querySelector('.header-home'),
+  pageHeader: document.querySelector(".header-home"),
 };
 
 init();
@@ -40,6 +40,6 @@ async function handleCategoryClick(event) {
   }
 }
 
-window.addEventListener('DOMContentLoaded', event => {
+window.addEventListener('DOMContentLoaded', (event) => {
   refs.pageHeader.dataset.pageName = 'home';
 });
