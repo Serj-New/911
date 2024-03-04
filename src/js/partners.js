@@ -1,48 +1,58 @@
+import found1 from '../img/funds/save-the-children.png';
+import found2 from '../img/funds/project-hope.png';
+import found3 from '../img/funds/united24.png';
+import found4 from '../img/funds/international-medical-corps.png';
+import found5 from '../img/funds/medicines-sans-frontieres.png';
+import found6 from '../img/funds/razom.png';
+import found7 from '../img/funds/action-against-hunger.png';
+import found8 from '../img/funds/world-vision.png';
+import found9 from '../img/funds/sergiy-prytula.png';
+
 const charityFunds = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img: '../img/funds/save-the-children.png',
+    img: found1,
   },
   {
     title: 'Project HOPE',
     url: 'https://www.projecthope.org/country/ukraine/',
-    img: '../img/funds/project-hope.png',
+    img: found2,
   },
   {
     title: 'UNITED24',
     url: 'https://u24.gov.ua/uk',
-    img: '../img/funds/united24.png',
+    img: found3,
   },
   {
     title: 'International Medical Corps',
     url: 'https://internationalmedicalcorps.org/country/ukraine/',
-    img: '../img/funds/international-medical-corps.png',
+    img: found4,
   },
   {
     title: 'Medicins Sans Frontieres',
     url: 'https://www.msf.org/ukraine',
-    img: '../img/funds/medicines-sans-frontieres.png',
+    img: found5,
   },
   {
     title: 'RAZOM',
     url: 'https://www.razomforukraine.org/',
-    img: '../img/funds/razom.png',
+    img: found6,
   },
   {
     title: 'Action against hunger',
     url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
-    img: '../img/funds/action-against-hunger.png',
+    img: found7,
   },
   {
     title: 'World vision',
     url: 'https://www.wvi.org/emergencies/ukraine',
-    img: '../img/funds/world-vision.png',
+    img: found8,
   },
   {
     title: 'Serhiy Prytula Charity Foundation',
     url: 'https://prytulafoundation.org/en',
-    img: '../img/funds/sergiy-prytula.png',
+    img: found9,
   },
 ];
 
