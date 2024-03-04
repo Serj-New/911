@@ -92,6 +92,13 @@
   }
 } */
 
+.support-wrapper {
+  display: none;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
 .shop-list {
   width: 335px;
   display: flex;
@@ -118,6 +125,10 @@
   object-fit: cover;
 }
 .book-info {
+  height: 142px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .book-title {
   max-width: 144px;
@@ -130,6 +141,7 @@
   letter-spacing: -0.04em;
   text-transform: uppercase;
   color: var(--text-color);
+  margin-top: 0;
 }
 .book-category {
   max-width: 165px;
@@ -148,8 +160,8 @@
   border-radius: 50%;
   background-color: var(--brand-color);
   position: absolute;
-  right: 14px;
-  top: 14px;
+  right: 0;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,6 +199,10 @@
   line-height: 1.16667;
   letter-spacing: -0.04em;
   color: var(--second-text-card);
+  max-width: 120px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .book-shop-links {
   display: flex;
@@ -221,6 +237,7 @@
     height: 165px;
   }
   .book-info {
+    height: 165px;
   }
   .book-title {
     max-width: 400px;
@@ -231,8 +248,6 @@
   .shop-list-delete-btn {
     width: 34px;
     height: 34px;
-    right: 24px;
-    top: 24px;
   }
   .delete-btn-icon {
     width: 18px;
@@ -249,6 +264,7 @@
     width: 508px;
   }
   .book-author {
+    max-width: 300px;
   }
   .book-shop-links {
     gap: 16px;
@@ -265,8 +281,13 @@
   }
 }
 @media screen and (min-width: 1440px) {
+  .container {
+  }
+  .support-wrapper {
+    display: inline;
+  }
   .shop-list {
-    width: 996pxpx;
+    width: 996px;
   }
   .shop-list-item {
     width: 996px;
@@ -274,6 +295,7 @@
   .shop-list-img {
   }
   .book-info {
+    height: 165px;
   }
   .book-title {
     max-width: 700px;
@@ -292,6 +314,7 @@
     width: 808px;
   }
   .book-author {
+    max-width: 500px;
   }
   .book-shop-links {
   }
