@@ -5,6 +5,7 @@ import './js/home_page/home-page';
 import './js/partners';
 
 import './js/shopping-list_page/shopping-list';
+import './js/shopping-list_page/pagination';
 
 import './js/scroll-up';
 
