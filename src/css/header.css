@@ -152,7 +152,9 @@ input[type='checkbox']:checked ~ .check::after {
 }
 
 .sign-up-button {
-  display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .sign-up-button_text {
@@ -207,7 +209,7 @@ input[type='checkbox']:checked ~ .check::after {
 }
 
 .burger-container {
-  background-image: url(../images/);
+  background-image: url(img/icons.svg#icon-burger-menu);
   background-position: bottom;
   background-repeat: no-repeat;
   padding: 0;
@@ -220,7 +222,7 @@ input[type='checkbox']:checked ~ .check::after {
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   .burger-container {
-    background-image: url(../images/);
+    background-image: url(img/icons.svg#icon-burger-menu);
     background-size: contain;
   }
 }
