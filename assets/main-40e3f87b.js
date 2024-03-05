@@ -6,9 +6,9 @@ import{a as u,S as x,P as S}from"./vendor-a0346c05.js";(function(){const t=docum
     <li class="main-page-book-title">${e.list_name}</li>
     <ul class="main-page-books-render">`;return t.forEach(s=>{n+=`
          <li class="main-page-book-render-item">
-          <a class="book-link" href="#">
+         
             <img class="book-image" src="${s.book_image}" alt="#" />
-          </a>
+      
           <h2 class="book-title">${s.title}</h2>
           <p class="book-author">${s.author}</p>
         </li>`}),n+=`</ul><div>
@@ -75,4 +75,4 @@ import{a as u,S as x,P as S}from"./vendor-a0346c05.js";(function(){const t=docum
                 <button class="remove-button">Remove</button>
             </div>
         `,t.appendChild(n)})}const g=document.querySelector(".scroll-up");g.style.display="none";function ue(){document.body.scrollTop>400||document.documentElement.scrollTop>400?g.style.display="block":g.style.display="none"}function pe(){window.scrollTo({top:0,left:0,behavior:"smooth"})}g.addEventListener("click",pe);window.addEventListener("scroll",ue);const v=document.querySelector('input[type="checkbox"]'),me=document.querySelector(".sign-up-button"),i={startBackdrop:document.querySelector(".start-backdrop"),startCloseBtn:document.querySelector(".start-close-btn"),form:document.querySelector(".start-form")},fe="form-data";let l={};function Be(){i.startBackdrop.classList.remove("start-hidden"),document.body.classList.add("scroll-lock")}function we(){i.startBackdrop.classList.add("start-hidden"),document.body.classList.remove("scroll-lock")}function he(e){e.preventDefault();const{name:t,email:o,password:n}=e.currentTarget.elements;l.name=t.value,l.email=o.value,l.password=n.value,localStorage.setItem(fe,JSON.stringify(l)),e.currentTarget.reset(),i.startBackdrop.classList.add("start-hidden")}function ve(e){e.code==="Escape"&&(i.startBackdrop.classList.add("start-hidden"),document.body.classList.remove("scroll-lock"))}i.startCloseBtn.addEventListener("click",we);i.form.addEventListener("submit",he);window.addEventListener("keydown",ve);const f=localStorage.getItem("theme");f&&(document.body.classList.add(f),v.checked=f==="dark");function Ce(){v.checked?(document.body.classList.add("dark"),localStorage.setItem("theme","dark")):(document.body.classList.remove("dark"),localStorage.setItem("theme","light"))}v.addEventListener("change",Ce);me.addEventListener("click",Be);$(document).ready(function(){$(".btn-footer.team-shark").click(function(){$("#modal-container").removeAttr("class").addClass("one"),$("body").addClass("modal-active")}),$("#modal-container").click(function(){$(this).addClass("out"),$("body").removeClass("modal-active")})});
-//# sourceMappingURL=main-8d206f76.js.map
+//# sourceMappingURL=main-40e3f87b.js.map
