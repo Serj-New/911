@@ -63,9 +63,9 @@ function createBookListOnMain(bookCard) {
   limitedBooks.forEach(book => {
     result += `
          <li class="main-page-book-render-item">
-          <a class="book-link" href="#">
+         
             <img class="book-image" src="${book.book_image}" alt="#" />
-          </a>
+      
           <h2 class="book-title">${book.title}</h2>
           <p class="book-author">${book.author}</p>
         </li>`;
