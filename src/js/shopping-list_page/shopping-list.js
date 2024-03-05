@@ -1,3 +1,6 @@
+import './pagination';
+import './local-storage';
+
 import { handleAddBtnClick, handleGetBtnClick, handleDelBtnClick } from '../shopping-list_page/local-storage'; // видалити handleAddBtnClick
 
 const refs = {
@@ -17,6 +20,7 @@ const booksList = handleGetBtnClick();
 renderShopList(booksList);
 
 function renderShopList(booksList) {
+    console.log(booksList);
     if (booksList.length === 0) {
         refs.shopListEmptElem.classList.remove("is-hidden");
     } else {
