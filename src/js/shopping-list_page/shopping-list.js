@@ -1,4 +1,4 @@
-import { handleAddBtnClick, handleGetBtnClick, handleDelBtnClick } from '/js/shopping-list_page/local-storage'; // видалити handleAddBtnClick
+import { handleAddBtnClick, handleGetBtnClick, handleDelBtnClick } from '../shopping-list_page/local-storage'; // видалити handleAddBtnClick
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
