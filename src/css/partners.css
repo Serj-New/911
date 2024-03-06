@@ -63,6 +63,9 @@
   height: 20px;
   stroke: #4f2ee8;
 }
+.partners-list {
+  display: none;
+}
 @media only screen and (min-width: 768px) {
   .support-wrapper {
     height: 474px;
@@ -91,5 +94,8 @@
   }
   .support-swiper-btn {
     margin-top: 24px;
+  }
+  .partners-list {
+    display: block;
   }
 }

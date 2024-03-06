@@ -194,7 +194,6 @@ input[type='checkbox']:checked ~ .check::after {
   top: 0;
   left: 0;
   z-index: 20;
-  pointer-events: none;
   background-color: linear-gradient(#4f2ee8 0%, #fff 130%);
   background-image: linear-gradient(#4f2ee8 0%, #fff 130%),
     url('../img/Group-6.png');

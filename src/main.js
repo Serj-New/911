@@ -186,20 +186,20 @@ $(document).ready(function () {
 // btnHeart.addEventListener('click', markupTeam);
 
 // header mob burger modal
-// const burgerModalElem = document.querySelector('.mobile-menu-container');
-// const burgerMenuBtnElem = document.querySelector('.burger-menu');
-// const burgerMenuCloseBtnElem = document.querySelector('.mobile-menu__button');
+const burgerModalElem = document.querySelector('.mobile-menu-container');
+const burgerMenuBtnElem = document.querySelector('.burger-menu');
+const burgerMenuCloseBtnElem = document.querySelector('.mobile-menu__button');
 
-// burgerMenuBtnElem.addEventListener('click', onBurgerMenuBtnClick);
-// burgerMenuCloseBtnElem.addEventListener('click', onBurgerMenuCloseBtnClick);
+burgerMenuBtnElem.addEventListener('click', onBurgerMenuBtnClick);
+burgerMenuCloseBtnElem.addEventListener('click', onBurgerMenuCloseBtnClick);
 
-// function onBurgerMenuBtnClick(e) {
-//   burgerModalElem.style.display = 'block';
-//   burgerMenuBtnElem.style.display = 'none';
-//   console.log('click');
-// }
-// function onBurgerMenuCloseBtnClick(e) {
-//   burgerModalElem.style.display = 'none';
-//   burgerMenuBtnElem.style.display = 'block';
-//   console.log('click-close');
-// }
+function onBurgerMenuBtnClick(e) {
+  burgerModalElem.style.display = 'block';
+  burgerMenuBtnElem.style.display = 'none';
+  console.log('click');
+}
+function onBurgerMenuCloseBtnClick(e) {
+  burgerModalElem.style.display = 'none';
+  burgerMenuBtnElem.style.display = 'block';
+  console.log('click-close');
+}

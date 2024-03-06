@@ -92,9 +92,6 @@
   }
 } */
 
-.support-wrapper {
-  display: none;
-}
 .container {
   display: flex;
   justify-content: center;
@@ -288,7 +285,7 @@
   .container {
   }
   .support-wrapper {
-    display: inline;
+    display: block;
   }
   .shop-list {
     width: 996px;
