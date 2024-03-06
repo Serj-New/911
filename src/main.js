@@ -8,8 +8,6 @@ import './js/scroll-up';
 // import './js/shopping-list_page/shopping-list';
 // import './js/shopping-list_page/pagination';
 
-
-
 // **=============Зміна теми======================================
 
 const checkbox = document.querySelector('input[type="checkbox"]');
@@ -78,20 +76,16 @@ checkbox.addEventListener('change', changeTheme);
 headBtn.addEventListener('click', openStarModal);
 
 $(document).ready(function () {
-  
   $('.btn-footer.team-shark').click(function () {
- 
     $('#modal-container').removeAttr('class').addClass('one');
     $('body').addClass('modal-active');
   });
 
- 
   $('#modal-container').click(function () {
     $(this).addClass('out');
     $('body').removeClass('modal-active');
   });
 });
-
 
 // **=========================FOOTER=============================
 
@@ -190,3 +184,22 @@ $(document).ready(function () {
 // }
 
 // btnHeart.addEventListener('click', markupTeam);
+
+// header mob burger modal
+// const burgerModalElem = document.querySelector('.mobile-menu-container');
+// const burgerMenuBtnElem = document.querySelector('.burger-menu');
+// const burgerMenuCloseBtnElem = document.querySelector('.mobile-menu__button');
+
+// burgerMenuBtnElem.addEventListener('click', onBurgerMenuBtnClick);
+// burgerMenuCloseBtnElem.addEventListener('click', onBurgerMenuCloseBtnClick);
+
+// function onBurgerMenuBtnClick(e) {
+//   burgerModalElem.style.display = 'block';
+//   burgerMenuBtnElem.style.display = 'none';
+//   console.log('click');
+// }
+// function onBurgerMenuCloseBtnClick(e) {
+//   burgerModalElem.style.display = 'none';
+//   burgerMenuBtnElem.style.display = 'block';
+//   console.log('click-close');
+// }
