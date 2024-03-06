@@ -1,48 +1,79 @@
-import './pagination';
-import './local-storage';
-
 import { handleAddBtnClick, handleGetBtnClick, handleDelBtnClick } from '../shopping-list_page/local-storage'; // видалити handleAddBtnClick
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
 
 const refs = {
     shopListEmptElem: document.querySelector(".shop-list-empty"),
     shopListDivElem: document.querySelector(".shopping-list"),
     shopListElem: document.querySelector(".shop-list"),
     pageHeader: document.querySelector(".header-home"),
+    paginationElem: document.getElementById("pagination"),
 }
-
+        
 handleAddBtnClick("643282b1e85766588626a081"); // видалити
 handleAddBtnClick("643282b1e85766588626a0b2"); //
 handleAddBtnClick("643282b2e85766588626a112"); //
 handleAddBtnClick("643282b1e85766588626a0d4"); //
+handleAddBtnClick("643282b1e85766588626a085"); //
+handleAddBtnClick("643282b1e85766588626a0b6"); //
+handleAddBtnClick("643282b1e85766588626a087"); //
+handleAddBtnClick("643282b2e85766588626a0f2"); //
+handleAddBtnClick("643282b1e85766588626a0d2"); //
+handleAddBtnClick("643282b1e85766588626a086"); //
+handleAddBtnClick("643282b2e85766588626a116"); //
+handleAddBtnClick("643282b2e85766588626a0f4"); //
+handleAddBtnClick("643282b1e85766588626a0b4"); //
 
+let booksList = handleGetBtnClick();
 
-const booksList = handleGetBtnClick();
-renderShopList(booksList);
+const options = {
+    totalItems: booksList.length,
+    itemsPerPage: 3, 
+    visiblePages: 3,
+    centerAlign: true,
+}
+const pagination = new Pagination('pagination', options);
 
+renderWithPagination();
+
+pagination.on('afterMove', renderWithPagination);
+
+function renderWithPagination() {
+    const currentPage = pagination.getCurrentPage();
+    const itemsPerPage = pagination._options.itemsPerPage;
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const booksToRender = booksList.slice(startIndex, endIndex);
+    renderShopList(booksToRender);
+}
 function renderShopList(booksList) {
-    console.log(booksList);
     if (booksList.length === 0) {
         refs.shopListEmptElem.classList.remove("is-hidden");
+        refs.paginationElem.classList.add("is-hidden");
     } else {
         refs.shopListEmptElem.classList.add("is-hidden");
+        refs.paginationElem.classList.remove("is-hidden");
         const markup = shopListTemplate(booksList);
-        refs.shopListElem.insertAdjacentHTML("beforeend", markup);
+        refs.shopListElem.innerHTML = markup;
+        const deleteBtnElements = document.querySelectorAll(".shop-list-delete-btn");
+        deleteBtnElements.forEach(button => {
+            button.addEventListener("click", onDeleteBtnClick);
+        });
     }
+}
 
-    const deleteBtnElements = document.querySelectorAll(".shop-list-delete-btn");
-    deleteBtnElements.forEach(button => {
-        button.addEventListener("click", onDeleteBtnClick);
-    });
-
-    function onDeleteBtnClick(event) {
-        const id = event.target.closest(".shop-list-item").id;
-        handleDelBtnClick(id);
-        const bookToRemove = document.getElementById(id);
-        bookToRemove.parentNode.removeChild(bookToRemove);
-        if (refs.shopListElem.childElementCount === 0) {
-            refs.shopListEmptElem.classList.remove("is-hidden");
-        }
-        
+function onDeleteBtnClick(event) {
+    const id = event.target.closest(".shop-list-item").id;
+    handleDelBtnClick(id);
+    const bookToRemove = document.getElementById(id);
+    bookToRemove.parentNode.removeChild(bookToRemove);
+    booksList = handleGetBtnClick();
+    const userCurrentPage = pagination.getCurrentPage();
+    pagination.reset(booksList.length);
+    renderWithPagination();
+    pagination.movePageTo(userCurrentPage);
+    if (refs.shopListElem.childElementCount === 0) {
+        refs.shopListEmptElem.classList.remove("is-hidden");
     }
 }
 
