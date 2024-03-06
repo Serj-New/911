@@ -434,6 +434,10 @@ button {
   color: var(--start-modal-btn-text);
 }
 
+.dark .main-page-title {
+  color: #fff;
+}
+
 .dark button {
   background-color: var(--brand-color);
   color: var(--text-color);
@@ -755,4 +759,41 @@ button {
   color: var(--text-color);
 }
 
-/* -------------------------- END MAIN PAGE RIGHT aka BOOKS--------------------- */
+/* -------------------------- Overlay--------------------- */
+.image-overlay {
+  position: relative; /* Устанавливаем позиционирование родительского элемента */
+  overflow: hidden;
+  display: inline-block;
+}
+
+.image-overlay-description {
+  position: absolute;
+  border-radius: 8px;
+  text-transform: uppercase;
+  /* left: 50%; */
+  top: 50%;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #000000;
+  padding: 40px 40px;
+  background-color: #eac645;
+  max-height: 60%;
+  width: 100%;
+  transform: translateY(70%);
+  transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  opacity: 0;
+}
+
+.image-overlay:hover .image-overlay-description {
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.book-card:hover .image-overlay-description,
+.book-details:hover .image-overlay-description {
+  opacity: 1;
+}
