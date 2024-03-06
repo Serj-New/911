@@ -66,9 +66,32 @@
 
 .header-home .index-link,
 .shop-list-header .shop-page-link {
+  border-radius: 36px;
+  padding: 8px 16px;
+}
+
+.main-page .index-link,
+.shopping-page .shop-page-link {
   background-color: #eac645;
   border-radius: 36px;
   padding: 8px 16px;
+}
+
+.main-page.dark .site-nav__logo {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.dark.shopping-page .shop-page-link {
+  color: #000;
+}
+
+.dark.shopping-page .site-nav__logo path {
+  fill: #000;
+}
+
+.dark.shopping-page .index-link a {
+  color: #fff;
 }
 
 .site-nav__link_active {
@@ -95,7 +118,6 @@
 .site-nav__logo {
   width: 20px;
   height: 20px;
-  stroke: var(--black-color);
   margin-left: 4px;
 }
 

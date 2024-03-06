@@ -87,6 +87,28 @@ $(document).ready(function () {
   });
 });
 
+// const siteNavItemList = document.querySelectorAll('.site-nav__item');
+
+// siteNavItemList.forEach(function(elem) {
+//   elem.addEventListener("click", function() {
+//       console.log(elem);
+//       if(!elem.classList.contains('active-btn')) {
+//         console.log(elem.getAttribute('class'));
+//         localStorage.setItem('activeItem', elem.getAttribute('class'))
+//       }
+//   });
+// });
+
+
+// function setActiveItem() {
+//   let activeItem = localStorage.getItem('activeItem');
+//   console.log(document.querySelector(activeItem));
+//   document.querySelector(activeItem);
+//   // elem.classList.add('active-btn');
+// }
+
+// setActiveItem()
+
 // **=========================FOOTER=============================
 
 // import * as basicLightbox from 'basiclightbox';
