@@ -46,16 +46,24 @@ function createBookListOnMain(bookCard) {
   let result = `
     <li class="main-page-book-title">${bookCard.list_name}</li>
     <ul class="main-page-books-render">`;
-  limitedBooks.forEach(book => {
+  limitedBooks.forEach(({ title, _id, author, book_image }) => {
     result += `
-         <li class="main-page-book-render-item">
-         
-            <img class="book-image" src="${book.book_image}" alt="#" />
-      
-          <h2 class="book-title">${book.title}</h2>
-          <p class="book-author">${book.author}</p>
-        </li>`;
+    <li class="main-page-book-render-item">
+    <div class="book-card" data-id="${_id}">
+      <div class="image-overlay" data-id="${_id}">
+        <img class="book-image" src="${book_image}" alt="${title}" />
+        <div class="image-description" data-id="${_id}">
+          <p class="image-overlay-description">quick view</p>
+        </div>
+      </div>
+      <div class="book-details">
+        <h2 class="book-title">${title}</h2>
+        <p class="book-author">${author}</p>
+      </div>
+    </div>
+  </li>`;
   });
+
   result += `</ul><div>
     <button class="button-see-more" type="button" data-catname="${catName}">See more</button>
   </div>`;
@@ -94,16 +102,24 @@ function bookListByCategory(booksByCategory) {
   result += `<h2 class="main-page-title">${firstPart}<span class="main-page-title-span"> ${lastWord}</span></h2>`;
   result += '<ul class="main-page-books-render">';
 
-  booksByCategory.forEach(book => {
+  booksByCategory.forEach(({ title, _id, author, book_image }) => {
     result += `
-      <li class="main-page-book-render-item">
-        <a class="book-link" href="#">
-          <img class="book-image" src="${book.book_image}" alt="#" />
-        </a>
-        <h2 class="book-title">${book.title}</h2>
-        <p class="book-author">${book.author}</p>
-      </li>`;
+    <li class="main-page-book-render-item">
+    <div class="book-card" data-id="${_id}">
+      <div class="image-overlay" data-id="${_id}">
+        <img class="book-image" src="${book_image}" alt="${title}" />
+        <div class="image-description" data-id="${_id}">
+          <p class="image-overlay-description">quick view</p>
+        </div>
+      </div>
+      <div class="book-details">
+        <h2 class="book-title">${title}</h2>
+        <p class="book-author">${author}</p>
+      </div>
+    </div>
+  </li>`;
   });
+
   result += `</ul>`;
   return result;
 }
@@ -122,6 +138,7 @@ function onSeeMoreBtnClick() {
       const categoryElement = this.dataset.catname;
       const booksByCategory = await getBookByCategory(categoryElement);
       renderBookListByCategory(booksByCategory, categoryElement);
+      currentCategory(categoryElement);
     });
   });
 }
