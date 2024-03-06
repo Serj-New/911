@@ -1,29 +1,15 @@
-import{g as u}from"./assets/main-0a62e6ce.js";import{P as k}from"./assets/vendor-a0346c05.js";async function l(e){const o=await u(e);f(o._id,o)}function b(e){localStorage.removeItem(e)}function r(){const e=localStorage.length,o=[];for(let t=0;t<e;t++){const s=localStorage.key(t),n=v(s);n._id&&o.push(n)}return o}function f(e,o){const t=JSON.stringify(o);localStorage.setItem(e,t)}function v(e){const o=localStorage.getItem(e);try{return JSON.parse(o)}catch{return o}}const c=1,p=r(),L=p.length,d=new k("pagination",{totalItems:L,itemsPerPage:c,visiblePages:1,centerAlign:!0});d.on("afterMove",e=>{const{page:o}=e,t=(o-1)*c,s=t+c,n=p.slice(t,s);E(n)});d.movePageTo(1);function E(e){const o=document.querySelector(".shop-list-js");o.innerHTML="",e.forEach(t=>{const s=document.createElement("li");s.classList.add("book-card"),s.innerHTML=`
-            <div class="book-image">
-                <img src="${t.imageUrl}" alt="${t.title}" />
-            </div>
-            <div class="book-info">
-                <h2 class="book-title">${t.title}</h2>
-                <p class="book-category">${t.category}</p>
-                <p class="book-description">${t.description}</p>
-                <p class="book-author">${t.author}</p>
-                <ul class="book-links">
-                    ${t.marketplaces}.map(link => <li><a href="${link}">Marketplace</a></li>).join('')}
-                </ul>
-                <button class="remove-button">Remove</button>
-            </div>
-        `,o.appendChild(s)})}const i={shopListEmptElem:document.querySelector(".shop-list-empty"),shopListDivElem:document.querySelector(".shopping-list"),shopListElem:document.querySelector(".shop-list"),pageHeader:document.querySelector(".header-home")};l("643282b1e85766588626a081");l("643282b1e85766588626a0b2");l("643282b2e85766588626a112");l("643282b1e85766588626a0d4");const y=r();$(y);function $(e){if(console.log(e),e.length===0)i.shopListEmptElem.classList.remove("is-hidden");else{i.shopListEmptElem.classList.add("is-hidden");const s=S(e);i.shopListElem.insertAdjacentHTML("beforeend",s)}document.querySelectorAll(".shop-list-delete-btn").forEach(s=>{s.addEventListener("click",t)});function t(s){const n=s.target.closest(".shop-list-item").id;b(n);const a=document.getElementById(n);a.parentNode.removeChild(a),i.shopListElem.childElementCount===0&&i.shopListEmptElem.classList.remove("is-hidden")}}function S(e){return e.map(B).join("")}function B(e){const{_id:o,book_image:t,title:s,list_name:n,description:a,author:m,amazon_product_url:h,buy_links:g}=e;return`<li class="shop-list-item" id="${o}">
+import{g as u}from"./assets/main-94c79202.js";import{P as b}from"./assets/vendor-a0346c05.js";async function s(e){const t=await u(e);f(t._id,t)}function k(e){localStorage.removeItem(e)}function d(){const e=localStorage.length,t=[];for(let o=0;o<e;o++){const n=localStorage.key(o),a=E(n);a._id&&t.push(a)}return t}function f(e,t){const o=JSON.stringify(t);localStorage.setItem(e,o)}function E(e){const t=localStorage.getItem(e);try{return JSON.parse(t)}catch{return t}}const i={shopListEmptElem:document.querySelector(".shop-list-empty"),shopListDivElem:document.querySelector(".shopping-list"),shopListElem:document.querySelector(".shop-list"),pageHeader:document.querySelector(".header-home"),paginationElem:document.getElementById("pagination")};s("643282b1e85766588626a081");s("643282b1e85766588626a0b2");s("643282b2e85766588626a112");s("643282b1e85766588626a0d4");s("643282b1e85766588626a085");s("643282b1e85766588626a0b6");s("643282b1e85766588626a087");s("643282b2e85766588626a0f2");s("643282b1e85766588626a0d2");s("643282b1e85766588626a086");s("643282b2e85766588626a116");s("643282b2e85766588626a0f4");s("643282b1e85766588626a0b4");let r=d();const v={totalItems:r.length,itemsPerPage:3,visiblePages:3,centerAlign:!0},l=new b("pagination",v);c();l.on("afterMove",c);function c(){const e=l.getCurrentPage(),t=l._options.itemsPerPage,o=(e-1)*t,n=o+t,a=r.slice(o,n);L(a)}function L(e){if(e.length===0)i.shopListEmptElem.classList.remove("is-hidden"),i.paginationElem.classList.add("is-hidden");else{i.shopListEmptElem.classList.add("is-hidden"),i.paginationElem.classList.remove("is-hidden");const t=P(e);i.shopListElem.innerHTML=t,document.querySelectorAll(".shop-list-delete-btn").forEach(n=>{n.addEventListener("click",y)})}}function y(e){const t=e.target.closest(".shop-list-item").id;k(t);const o=document.getElementById(t);o.parentNode.removeChild(o),r=d();const n=l.getCurrentPage();l.reset(r.length),c(),l.movePageTo(n),i.shopListElem.childElementCount===0&&i.shopListEmptElem.classList.remove("is-hidden")}function P(e){return e.map(S).join("")}function S(e){const{_id:t,book_image:o,title:n,list_name:a,description:m,author:p,amazon_product_url:g,buy_links:h}=e;return`<li class="shop-list-item" id="${t}">
         <img class="shop-list-img"
-            src="${t}"
-            alt="${s}" />  
+            src="${o}"
+            alt="${n}" />  
         <div class="book-info">
-        <h1 class="book-title">${s}</h1>
-        <p class="book-category">${n}</p>
-        <p class="book-description">${a}</p>
+        <h1 class="book-title">${n}</h1>
+        <p class="book-category">${a}</p>
+        <p class="book-description">${m}</p>
         <div class="card-footer">
-        <p class="book-author">${m}</p>
+        <p class="book-author">${p}</p>
         <ul class="book-shop-links">
-        <li><a href="${h}" target="_blank"><img class="book-shop-img amazon-logo"
+        <li><a href="${g}" target="_blank"><img class="book-shop-img amazon-logo"
         srcset="
         /img/internet-shops/amazon@1x.png 1x,
         /img/internet-shops/amazon@2x.png 2x" 
@@ -31,7 +17,7 @@ import{g as u}from"./assets/main-0a62e6ce.js";import{P as k}from"./assets/vendor
         alt="Amazon logo"
         width="32"
         height="11"/></a></li>
-        <li><a class="book-shop-link" href="${g[1].url}" target="_blank"><img class="book-shop-img apple-books-logo"
+        <li><a class="book-shop-link" href="${h[1].url}" target="_blank"><img class="book-shop-img apple-books-logo"
         srcset="
         /img/internet-shops/book@1x.png 1x,
         /img/internet-shops/book@2x.png 2x" 
