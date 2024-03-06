@@ -3,7 +3,7 @@ import './js/home_page/render';
 import './js/home_page/home-page';
 
 import './js/partners';
-import './js/scroll-up';
+// import './js/scroll-up';
 
 // import './js/shopping-list_page/shopping-list';
 // import './js/shopping-list_page/pagination';
