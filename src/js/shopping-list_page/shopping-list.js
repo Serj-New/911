@@ -30,7 +30,7 @@ function getBooks() {
 const pagination = new Pagination('pagination', {
     totalItems: getBooks().length,
     itemsPerPage: window.innerWidth < 768 ? 4 : 3, 
-    visiblePages: window.innerWidth < 768 ? 2 : 3,
+    visiblePages: 2, //window.innerWidth < 768 ? 2 : 3,
     centerAlign: true,
 });
 renderWithPagination();

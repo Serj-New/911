@@ -97,7 +97,6 @@
   }
 }
 
-
 .container {
   /* display: flex;
   justify-content: center;
@@ -278,7 +277,7 @@
     margin-top: 14px;
   }
   .card-footer {
-    margin-top: 50px;
+    margin-top: 25px;
     width: 508px;
   }
   .book-author {
@@ -354,6 +353,7 @@
   display: none;
 }
 .shopping-list .tui-pagination {
+  width: 335px;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
@@ -368,8 +368,8 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 1.22222;
-  color: #000;
-  border: 1px solid #000;
+  color: #111;
+  border: 1px solid #111;
   padding: 0px 0px;
   display: flex;
   flex-direction: row;
@@ -377,23 +377,39 @@
   align-items: center;
 }
 .shopping-list .tui-pagination .tui-prev,
-.shopping-list .tui-pagination .tui-first {
+.shopping-list .tui-pagination .tui-first,
+.shopping-list .tui-pagination .tui-next,
+.shopping-list .tui-pagination .tui-last {
   background-color: #eac645;
-  border: 1px solid #000;
+  border: 1px solid #111;
+}
+.shopping-list .tui-pagination .tui-next {
+  margin-left: 7px;
+}
+.shopping-list .tui-pagination .tui-prev {
+  margin-right: 7px;
+}
+
+.shopping-list .tui-pagination .tui-prev-is-ellip,
+.shopping-list .tui-pagination .tui-next-is-ellip {
+  padding-bottom: 6px;
+}
+.shopping-list .tui-pagination .tui-prev-is-ellip {
+  display: none;
+  padding-top: 9px;
 }
 .shopping-list .tui-pagination .tui-is-selected,
 .shopping-list .tui-pagination .tui-is-selected:hover {
-  border: 1px solid #000;
-  background-color: #000;
+  border: 1px solid #111;
+  background-color: #111;
   color: #fff;
 }
 .shopping-list .tui-pagination .tui-is-disabled,
 .shopping-list .tui-pagination .tui-is-disabled:hover {
-  border: 1px solid #000;
-  background-color: #000;
+  border: 1px solid #111;
+  background-color: #111;
   color: #fff;
 }
-
 .shopping-list .tui-pagination .tui-first-child,
 .shopping-list .tui-pagination .tui-last-child,
 .shopping-list .tui-pagination .tui-first + .tui-prev,
@@ -402,26 +418,31 @@
 .shopping-list .tui-pagination .tui-last-child.tui-is-selected,
 .shopping-list .tui-pagination .tui-first + .tui-prev,
 .shopping-list .tui-pagination .tui-next + .tui-last {
-  border: 1px solid #000;
-}
-.shopping-list .tui-pagination .tui-next-is-ellip,
-.shopping-list .tui-pagination .tui-prev-is-ellip {
-  padding-bottom: 6px;
+  border: 1px solid #111;
 }
 
 @media screen and (min-width: 768px) {
   .shopping-list .tui-pagination {
     gap: 10px;
+    width: 704px;
   }
   .shopping-list .tui-pagination .tui-page-btn {
-    border-radius: 50%;
     width: 44px;
     height: 44px;
+  }
+  .shopping-list .tui-pagination .tui-prev-is-ellip {
+    display: inline;
+  }
+  .shopping-list .tui-pagination .tui-next {
+    margin-left: 14px;
+  }
+  .shopping-list .tui-pagination .tui-prev {
+    margin-right: 14px;
   }
 }
 @media screen and (min-width: 1440px) {
   .shopping-list .tui-pagination {
-    max-width: 996px;
+    width: 996px;
   }
 }
 /**
@@ -429,42 +450,29 @@
     | DARK
     |============================
   */
-.dark li {
+.dark .shop-list-item {
   background-color: #111;
 }
 .dark .shopping-list .tui-pagination .tui-page-btn {
   border: 1px solid #fff;
   color: #fff;
 }
+.dark .shopping-list .tui-pagination .tui-prev,
+.dark .shopping-list .tui-pagination .tui-first,
+.dark .shopping-list .tui-pagination .tui-next,
+.dark .shopping-list .tui-pagination .tui-last {
+  background-color: #eac645;
+  border: 1px solid #111;
+}
 .dark .shopping-list .tui-pagination .tui-is-selected,
 .dark .shopping-list .tui-pagination .tui-is-selected:hover {
   border: 1px solid #fff;
   background-color: #fff;
-  color: #000;
+  color: #111;
 }
-
-/* .dark .shopping-list .tui-pagination .tui-prev, */
-.dark .shopping-list .tui-pagination .tui-first-child,
-.dark .shopping-list .tui-pagination .tui-last-child,
-/* .dark .shopping-list .tui-pagination .tui-first + .tui-prev, */
-/* .dark .shopping-list .tui-pagination .tui-first + .tui-prev, */
-.dark .shopping-list .tui-pagination .tui-first-child .tui-is-selected,
-.dark .shopping-list .tui-pagination .tui-last-child .tui-is-selected {
-  /* .dark .shopping-list .tui-pagination .tui-first + .tui-prev, */
-  /* .dark .shopping-list .tui-pagination .tui-next + .tui-last { */
-  border: 1px solid #fff;
-}
-.dark .shopping-list .tui-pagination .tui-is-disabled + .tui-prev,
-.dark .shopping-list .tui-pagination .tui-is-disabled + .tui-last,
 .dark .shopping-list .tui-pagination .tui-is-disabled,
 .dark .shopping-list .tui-pagination .tui-is-disabled:hover {
   border: 1px solid #111;
   background-color: #111;
   color: #fff;
-}
-.dark .shopping-list .tui-pagination .tui-prev,
-.dark .shopping-list .tui-pagination .tui-last,
-.dark .shopping-list .tui-pagination .tui-next,
-.dark .shopping-list .tui-pagination .tui-first {
-  border: none;
 }
