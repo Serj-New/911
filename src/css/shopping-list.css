@@ -87,9 +87,17 @@
 .shop-list.is-hidden {
   display: none;
 }
-.support-wrapper {
+.shopping-page .support-wrapper {
   display: none;
 }
+
+@media screen and (min-width: 768px) {
+  .shopping-page .support-wrapper {
+    display: block;
+  }
+}
+
+
 .container {
   /* display: flex;
   justify-content: center;
