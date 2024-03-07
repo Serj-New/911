@@ -95,14 +95,18 @@ export async function renderBookListOnMain(bookCard) {
 /********************************** */
 
 export async function onPageLoad() {
-  listBooksByCategory.innerHTML = '';
-  let result = '';
-  result += `<h1 class="main-page-title">Best Sellers <span class="main-page-title-span">Books</span></h1>
-  <ul class="main-page-book"></ul>`;
-  listBooksByCategory.insertAdjacentHTML('afterbegin', result);
-  const topBooks = await getTopBooks();
-  await renderBookListOnMain(topBooks);
-  onSeeMoreBtnClick();
+  const listBooksByCategory = document.querySelector('.main-page-right');
+  
+  if(listBooksByCategory) {
+    listBooksByCategory.innerHTML = '';
+    let result = '';
+    result += `<h1 class="main-page-title">Best Sellers <span class="main-page-title-span">Books</span></h1>
+    <ul class="main-page-book"></ul>`;
+    listBooksByCategory.insertAdjacentHTML('afterbegin', result);
+    const topBooks = await getTopBooks();
+    await renderBookListOnMain(topBooks);
+    onSeeMoreBtnClick();
+  }
 }
 onPageLoad();
 
