@@ -225,6 +225,7 @@ input[type='checkbox']:checked ~ .check::after {
 }
 .books-img {
   position: fixed;
+  bottom: 0;
   width: 450px;
   height: 439px;
   transform: translateY(30%) rotate(-15deg) scale(1.22);
