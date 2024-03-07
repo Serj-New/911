@@ -1,4 +1,10 @@
 /* header */
+
+::before,
+::after {
+  box-sizing: border-box;
+}
+
 /* MOBILE */
 @media screen and (min-width: 375px) {
   .header-container {
@@ -21,11 +27,6 @@
     max-width: 1440px;
     padding: 0 24px;
   }
-}
-
-::before,
-::after {
-  box-sizing: border-box;
 }
 
 .header-container {
@@ -57,13 +58,13 @@
 
 .site-nav {
   display: flex;
-  gap: 24px;
+  gap: 7px;
 }
 
 .site-nav__item {
+  display: flex;
   padding: 8px 16px;
 }
-
 .header-home .index-link,
 .shop-list-header .shop-page-link {
   border-radius: 36px;
@@ -99,13 +100,13 @@
 
 .main-page .burger-shop-link .site-nav__logo {
   fill: #fff;
-} 
+}
 
 .shopping-page .burger-home-link a {
   color: #fff;
 }
 
-.site-nav__link_active {
+/* .site-nav__link_active {
   font-weight: 700;
   letter-spacing: -0.04em;
   text-transform: uppercase;
@@ -123,7 +124,18 @@
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  /* color: #fff; */
+} */
+.site-nav__link,
+.site-nav__link_active {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #111;
+  display: flex;
+  align-items: center;
 }
 
 .site-nav__logo {
@@ -189,6 +201,8 @@ input[type='checkbox']:checked ~ .check::after {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 184px;
+  height: 44px;
 }
 
 .sign-up-button_text {
@@ -374,9 +388,9 @@ input[type='checkbox']:checked ~ .check::after {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1440px) {
   .header-logo-link {
-    margin-right: 40px;
+    margin-right: 76px;
   }
 
   .navigation {
@@ -391,7 +405,7 @@ input[type='checkbox']:checked ~ .check::after {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 184px;
+    width: 184px;
     padding: 13px 14px;
     background: #4f2ee8;
     border: 1.5px solid #111111;
@@ -431,6 +445,9 @@ input[type='checkbox']:checked ~ .check::after {
   .user-bar {
     position: relative;
     display: none;
+  }
+  .navigation {
+    display: block;
   }
 }
 
@@ -479,9 +496,6 @@ input[type='checkbox']:checked ~ .check::after {
   transform: scaleY(0);
 }
 
-.user-bar-button-arrow-icon {
-}
-
 .user-bar .is-active .dropdown {
   transform: scaleY(1);
 }
@@ -525,7 +539,4 @@ input[type='checkbox']:checked ~ .check::after {
 .burger-container_authorized-user {
   padding: 20px;
   margin: 0;
-  /* display: flex;
-  flex-direction: column; */
 }
-
