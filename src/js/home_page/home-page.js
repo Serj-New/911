@@ -12,7 +12,7 @@ import {
 
 const refs = {
   category: document.querySelector('.categories-elements'),
-  pageHeader: document.querySelector(".header-home"),
+  pageHeader: document.querySelector('.header-home'),
 };
 
 init();
@@ -36,13 +36,19 @@ async function handleCategoryClick(event) {
   if (category === 'All categories') {
     onPageLoad();
     currentCategory(event.target.dataset.category);
+    document
+      .getElementById('scroll-to-start')
+      .scrollIntoView({ behavior: 'smooth' });
   } else {
     const booksByCategory = await getBookByCategory(category);
     renderBookListByCategory(booksByCategory, category);
     currentCategory(event.target.dataset.category);
+    document
+      .getElementById('scroll-to-start')
+      .scrollIntoView({ behavior: 'smooth' });
   }
 }
 
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', event => {
   refs.pageHeader.dataset.pageName = 'home';
 });

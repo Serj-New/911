@@ -18,9 +18,11 @@ export async function currentCategory(value) {
   const currentCategoryElement = document.querySelector('.current-category');
   if (currentCategoryElement) {
     currentCategoryElement.classList.remove('current-category');
-  } 
-  
-  const newCategoryElement = document.querySelector(`a[data-category="${value}"]`);
+  }
+
+  const newCategoryElement = document.querySelector(
+    `a[data-category="${value}"]`
+  );
   if (newCategoryElement) {
     newCategoryElement.classList.add('current-category');
   } else {
@@ -58,7 +60,7 @@ function createBookListOnMain(bookCard) {
   let limitedBooks = getLimitedBooks(bookCard.books);
   let catName = bookCard.list_name;
   let result = `
-    <li class="main-page-book-title">${bookCard.list_name}</li>
+    <h2 class="main-page-book-title">${bookCard.list_name}</h2>
     <ul class="main-page-books-render">`;
   limitedBooks.forEach(({ title, _id, author, book_image }) => {
     result += `
@@ -71,8 +73,8 @@ function createBookListOnMain(bookCard) {
         </div>
       </div>
       <div class="book-details">
-        <h2 class="book-title">${title}</h2>
-        <p class="book-author">${author}</p>
+        <h3 class="main-book-title">${title}</h3>
+        <p class="main-book-author">${author}</p>
       </div>
     </div>
   </li>`;
@@ -95,7 +97,7 @@ export async function renderBookListOnMain(bookCard) {
 export async function onPageLoad() {
   listBooksByCategory.innerHTML = '';
   let result = '';
-  result += `<h2 class="main-page-title">Best Sellers <span class="main-page-title-span">Books</span></h2>
+  result += `<h1 class="main-page-title">Best Sellers <span class="main-page-title-span">Books</span></h1>
   <ul class="main-page-book"></ul>`;
   listBooksByCategory.insertAdjacentHTML('afterbegin', result);
   const topBooks = await getTopBooks();
@@ -113,7 +115,7 @@ function bookListByCategory(booksByCategory) {
   const lastWord = words[words.length - 1];
   let result = '';
 
-  result += `<h2 class="main-page-title">${firstPart}<span class="main-page-title-span"> ${lastWord}</span></h2>`;
+  result += `<h2 id="scroll-to-start" class="main-page-title">${firstPart}<span class="main-page-title-span"> ${lastWord}</span></h2>`;
   result += '<ul class="main-page-books-render">';
 
   booksByCategory.forEach(({ title, _id, author, book_image }) => {
@@ -127,8 +129,8 @@ function bookListByCategory(booksByCategory) {
         </div>
       </div>
       <div class="book-details">
-        <h2 class="book-title">${title}</h2>
-        <p class="book-author">${author}</p>
+        <h2 class="main-book-title">${title}</h2>
+        <p class="main-book-author">${author}</p>
       </div>
     </div>
   </li>`;
@@ -153,6 +155,9 @@ function onSeeMoreBtnClick() {
       const booksByCategory = await getBookByCategory(categoryElement);
       renderBookListByCategory(booksByCategory, categoryElement);
       currentCategory(categoryElement);
+      document
+        .getElementById('scroll-to-start')
+        .scrollIntoView({ behavior: 'smooth' });
     });
   });
 }
