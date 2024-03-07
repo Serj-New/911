@@ -99,7 +99,6 @@ $(document).ready(function () {
 //   });
 // });
 
-
 // function setActiveItem() {
 //   let activeItem = localStorage.getItem('activeItem');
 //   console.log(document.querySelector(activeItem));
@@ -218,10 +217,16 @@ burgerMenuCloseBtnElem.addEventListener('click', onBurgerMenuCloseBtnClick);
 function onBurgerMenuBtnClick(e) {
   burgerModalElem.style.display = 'block';
   burgerMenuBtnElem.style.display = 'none';
-  console.log('click');
 }
 function onBurgerMenuCloseBtnClick(e) {
   burgerModalElem.style.display = 'none';
   burgerMenuBtnElem.style.display = 'block';
-  console.log('click-close');
+}
+// on menu mob sign-up click
+const signUpBtnBurgerElem = document.querySelector('.sign-up-button-burger');
+const backDropElem = document.querySelector('.onSignUpBtnBurgerClick');
+signUpBtnBurgerElem.addEventListener('click', onSignUpBtnBurgerClick);
+
+function onSignUpBtnBurgerClick(e) {
+  console.log('click');
 }
