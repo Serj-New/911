@@ -1,13 +1,12 @@
-import { handleAddBtnClick, handleGetBtnClick, handleDelBtnClick } from '../shopping-list_page/local-storage'; // видалити handleAddBtnClick
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import { handleAddBtnClick, handleGetBtnClick, handleDelBtnClick } from './local-storage'; // видалити handleAddBtnClick
 
 const refs = {
     shopListEmptElem: document.querySelector(".shop-list-empty"),
-    shopListDivElem: document.querySelector(".shopping-list"),
     shopListElem: document.querySelector(".shop-list"),
-    pageHeader: document.querySelector(".header-home"),
     paginationElem: document.getElementById("pagination"),
+    pageHeader: document.querySelector(".header-home"),
 }
         
 handleAddBtnClick("643282b1e85766588626a081"); // видалити
@@ -24,57 +23,76 @@ handleAddBtnClick("643282b2e85766588626a116"); //
 handleAddBtnClick("643282b2e85766588626a0f4"); //
 handleAddBtnClick("643282b1e85766588626a0b4"); //
 
-let booksList = handleGetBtnClick();
-
-const options = {
-    totalItems: booksList.length,
-    itemsPerPage: 3, 
-    visiblePages: 3,
-    centerAlign: true,
+function getBooks() {
+    return handleGetBtnClick();
 }
-const pagination = new Pagination('pagination', options);
 
+const pagination = new Pagination('pagination', {
+    totalItems: getBooks().length,
+    itemsPerPage: window.innerWidth < 768 ? 4 : 3, 
+    visiblePages: window.innerWidth < 768 ? 2 : 3,
+    centerAlign: true,
+});
 renderWithPagination();
 
-pagination.on('afterMove', renderWithPagination);
+window.addEventListener("resize", onResize);
+function onResize() {
+    const targetPage = pagination.getCurrentPage();
+    pagination.movePageTo(targetPage);
+}
+
+pagination.on('afterMove', (event) => {
+    const itemsPerPage = window.innerWidth < 768 ? 4 : 3;
+    pagination.setItemsPerPage(itemsPerPage);
+    renderWithPagination();
+}); 
 
 function renderWithPagination() {
-    const currentPage = pagination.getCurrentPage();
-    const itemsPerPage = pagination._options.itemsPerPage;
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const booksToRender = booksList.slice(startIndex, endIndex);
-    renderShopList(booksToRender);
-}
-function renderShopList(booksList) {
-    if (booksList.length === 0) {
-        refs.shopListEmptElem.classList.remove("is-hidden");
-        refs.paginationElem.classList.add("is-hidden");
-    } else {
-        refs.shopListEmptElem.classList.add("is-hidden");
-        refs.paginationElem.classList.remove("is-hidden");
-        const markup = shopListTemplate(booksList);
-        refs.shopListElem.innerHTML = markup;
-        const deleteBtnElements = document.querySelectorAll(".shop-list-delete-btn");
-        deleteBtnElements.forEach(button => {
-            button.addEventListener("click", onDeleteBtnClick);
-        });
+    if (checkIfEmpty()) {
+        const currentPage = pagination.getCurrentPage();
+        const itemsPerPage = window.innerWidth < 768 ? 4 : 3;
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const booksToRender = getBooks().slice(startIndex, endIndex);
+        renderShopList(booksToRender);
     }
 }
 
+function renderShopList(booksList) {
+    const deleteBtnElements = document.querySelectorAll(".shop-list-delete-btn");
+    deleteBtnElements.forEach(button => {
+        button.removeEventListener("click", onDeleteBtnClick);
+    });
+    const markup = shopListTemplate(booksList);
+    refs.shopListElem.innerHTML = markup;
+    const newDeleteBtnElements = document.querySelectorAll(".shop-list-delete-btn");
+    newDeleteBtnElements.forEach(button => {
+        button.addEventListener("click", onDeleteBtnClick);
+    });
+}
+function checkIfEmpty() {
+    if (getBooks().length === 0) {
+        refs.shopListElem.classList.add("is-hidden");
+        refs.paginationElem.classList.add("is-hidden");
+        refs.shopListEmptElem.classList.remove("is-hidden");
+        return false;
+    } else {
+        refs.shopListElem.classList.remove("is-hidden");
+        refs.shopListEmptElem.classList.add("is-hidden");
+        refs.paginationElem.classList.remove("is-hidden");
+        return true;
+    }
+}
 function onDeleteBtnClick(event) {
     const id = event.target.closest(".shop-list-item").id;
     handleDelBtnClick(id);
     const bookToRemove = document.getElementById(id);
     bookToRemove.parentNode.removeChild(bookToRemove);
-    booksList = handleGetBtnClick();
     const userCurrentPage = pagination.getCurrentPage();
-    pagination.reset(booksList.length);
+    pagination.reset(getBooks().length);
     renderWithPagination();
     pagination.movePageTo(userCurrentPage);
-    if (refs.shopListElem.childElementCount === 0) {
-        refs.shopListEmptElem.classList.remove("is-hidden");
-    }
+    checkIfEmpty();
 }
 
 function shopListTemplate(books) {
@@ -112,11 +130,11 @@ function bookTemplate(book) {
         width="16"
         height="16"/></a></li>
         </ul>
+        </div> 
         </div>
         <button class="shop-list-delete-btn"><svg class="delete-btn-icon">
                   <use href="/img/icons.svg#icon-trash"></use>
-                </svg></button> 
-        </div>
+                </svg></button>
     </li>`;
 }
 
