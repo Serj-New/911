@@ -438,7 +438,7 @@ button {
   color: #fff;
 }
 
-.dark button {
+.dark .button-see-more {
   background-color: var(--brand-color);
   color: var(--text-color);
 }

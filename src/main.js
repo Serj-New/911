@@ -222,3 +222,10 @@ function onBurgerMenuCloseBtnClick(e) {
   burgerModalElem.style.display = 'none';
   burgerMenuBtnElem.style.display = 'block';
 }
+
+window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
+  if (!e.matches) return;
+  burgerModalElem.style.display = 'none';
+  burgerMenuCloseBtnElem.style.display = 'none';
+  burgerMenuBtnElem.style.display = 'none';
+});

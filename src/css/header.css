@@ -72,14 +72,13 @@
 
 .main-page .index-link,
 .shopping-page .shop-page-link {
-  background-color: #eac645;
+  background-color: var(--accent-color);
   border-radius: 36px;
   padding: 8px 16px;
 }
 
 .main-page.dark .site-nav__logo {
   fill: #fff;
-  stroke: #fff;
 }
 
 .dark.shopping-page .shop-page-link {
@@ -91,6 +90,18 @@
 }
 
 .dark.shopping-page .index-link a {
+  color: #fff;
+}
+
+.main-page .burger-shop-link {
+  color: #fff;
+}
+
+.main-page .burger-shop-link .site-nav__logo {
+  fill: #fff;
+} 
+
+.shopping-page .burger-home-link a {
   color: #fff;
 }
 
@@ -112,20 +123,20 @@
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  color: #fff;
+  /* color: #fff; */
 }
 
 .site-nav__logo {
   width: 20px;
   height: 20px;
   margin-left: 4px;
-  stroke: #fff;
+  /* stroke: #fff; */
 }
 
 .site-nav__logo_active {
   width: 20px;
   height: 20px;
-  stroke: #111111;
+  /* stroke: #111111; */
   margin-left: 4px;
 }
 
@@ -196,6 +207,7 @@ input[type='checkbox']:checked ~ .check::after {
   background-color: transparent;
   margin-left: 14px;
   border: none;
+  padding: 0;
 }
 
 .burger-menu__icon {
@@ -418,7 +430,7 @@ input[type='checkbox']:checked ~ .check::after {
 @media screen and (min-width: 768px) {
   .user-bar {
     position: relative;
-    display: block;
+    display: none;
   }
 }
 
@@ -516,3 +528,4 @@ input[type='checkbox']:checked ~ .check::after {
   /* display: flex;
   flex-direction: column; */
 }
+
