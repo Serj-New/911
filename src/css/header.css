@@ -78,7 +78,7 @@
 
 .site-nav {
   display: flex;
-  gap: 7px;
+  gap: 24px;
 }
 
 .site-nav__item {
@@ -286,7 +286,7 @@ input[type='checkbox']:checked ~ .check::after {
   left: 0;
   z-index: 20;
   background-color: linear-gradient(#4f2ee8 0%, #fff 130%);
-  background: linear-gradient(#4f2ee8 0%, #fff 130%), url('../img/Group_61.png');
+  background: linear-gradient(#4f2ee8 0%, #fff 130%);
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: contain;

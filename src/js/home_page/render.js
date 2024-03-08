@@ -47,7 +47,7 @@ function getBooksByWindowSize() {
   const windowWidth = window.innerWidth;
   let categoryToShow;
 
-  if (windowWidth >= 320 && windowWidth < 768) {
+  if (windowWidth >= 0 && windowWidth < 768) {
     categoryToShow = 'small'; 
   } else if (windowWidth >= 768 && windowWidth < 1440) {
     categoryToShow = 'medium'; 

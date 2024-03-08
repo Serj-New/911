@@ -119,11 +119,28 @@
   color: rgba(17, 17, 17, 0.6);
 }
 
+.dark .category-link {
+ font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .category-link.current-category {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #eac645;
+ }
+
 /* tablet & desktop */
 @media only screen and (min-width: 768px) {
   .categories-list {
-    /* gap: 32px; */
-
     height: 24px;
     font-size: 15px;
     line-height: 1.33;
@@ -149,17 +166,8 @@
 
 /* категорії */
 
-/* both categories & support funds container  */
 /* mobile */
-.img {
-  max-width: 100%;
-}
-
-
-
-
-/* mobile */
-.categories-list {
+/* .categories-list {
   height: 18px;
 
   font-size: 15px;
@@ -167,34 +175,7 @@
   font-weight: 400;
   line-height: 1.13;
   letter-spacing: -0.32px;
-}
-
-/* tablet & desktop */
-@media only screen and (min-width: 768px) {
-  .categories-list {
-    /* gap: 32px; */
-
-    height: 24px;
-    font-size: 15px;
-    line-height: 1.33;
-    letter-spacing: -0.36px;
-  }
-}
-
-.categories-list:hover,
-.categories-list:focus {
-  color: var(--brand-color);
-}
-
-.current-category {
-  /* height: 24px; */
-  font-weight: 700;
-  line-height: 1.33333;
-  letter-spacing: -0.02em;
-
-  text-transform: uppercase;
-  color: var(--active-category);
-}
+} */
 
 /* --------------------------Код Аліни----------------------*/
 
@@ -242,6 +223,8 @@
 
   .main-page-books-render {
     width: 704px;
+    grid-template-columns: repeat(auto-fill, minmax(218px, 1fr));
+    column-gap: 25px;
   }
 }
 
@@ -278,10 +261,7 @@
   .book-card {
     width: 218px;
   }
-  .main-page-books-render {
-    grid-template-columns: repeat(auto-fill, minmax(218px, 1fr));
-    column-gap: 25px;
-  }
+
   .book-image {
     width: 218px;
     height: 316px;
