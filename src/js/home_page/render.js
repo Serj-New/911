@@ -18,9 +18,11 @@ export async function currentCategory(value) {
   const currentCategoryElement = document.querySelector('.current-category');
   if (currentCategoryElement) {
     currentCategoryElement.classList.remove('current-category');
-  } 
-  
-  const newCategoryElement = document.querySelector(`a[data-category="${value}"]`);
+  }
+
+  const newCategoryElement = document.querySelector(
+    `a[data-category="${value}"]`
+  );
   if (newCategoryElement) {
     newCategoryElement.classList.add('current-category');
   } else {
@@ -58,24 +60,24 @@ function createBookListOnMain(bookCard) {
   let limitedBooks = getLimitedBooks(bookCard.books);
   let catName = bookCard.list_name;
   let result = `
-    <li class="main-page-book-title">${bookCard.list_name}</li>
+    <h2 class="main-page-book-title">${bookCard.list_name}</h2>
     <ul class="main-page-books-render">`;
   limitedBooks.forEach(({ title, _id, author, book_image }) => {
     result += `
     <li class="main-page-book-render-item">
-    <div class="book-card" data-id="${_id}">
-      <div class="image-overlay" data-id="${_id}">
-        <img class="book-image" src="${book_image}" alt="${title}" />
-        <div class="image-description" data-id="${_id}">
-          <p class="image-overlay-description">quick view</p>
+      <div class="book-card">
+        <div class="image-overlay js-book-card" data-id="${_id}">
+          <img class="book-image" src="${book_image}" alt="${title}" />
+          <div class="image-description">
+            <p class="image-overlay-description">quick view</p>
+          </div>
+        </div>
+        <div class="book-details">
+          <h3 class="main-book-title">${title}</h3>
+          <p class="main-book-author">${author}</p>
         </div>
       </div>
-      <div class="book-details">
-        <h2 class="book-title">${title}</h2>
-        <p class="book-author">${author}</p>
-      </div>
-    </div>
-  </li>`;
+    </li>`;
   });
 
   result += `</ul><div>
@@ -93,14 +95,20 @@ export async function renderBookListOnMain(bookCard) {
 /********************************** */
 
 export async function onPageLoad() {
-  listBooksByCategory.innerHTML = '';
-  let result = '';
-  result += `<h2 class="main-page-title">Best Sellers <span class="main-page-title-span">Books</span></h2>
-  <ul class="main-page-book"></ul>`;
-  listBooksByCategory.insertAdjacentHTML('afterbegin', result);
-  const topBooks = await getTopBooks();
-  await renderBookListOnMain(topBooks);
-  onSeeMoreBtnClick();
+  const listBooksByCategory = document.querySelector('.main-page-right');
+  
+  if(listBooksByCategory) {
+    listBooksByCategory.innerHTML = '';
+    let result = '';
+
+    result += `<h1 class="main-page-title">Best Sellers <span class="main-page-title-span">Books</span></h1>
+    <ul class="main-page-book js-main-page-book"></ul>`;
+
+    listBooksByCategory.insertAdjacentHTML('afterbegin', result);
+    const topBooks = await getTopBooks();
+    await renderBookListOnMain(topBooks);
+    onSeeMoreBtnClick();
+  }
 }
 onPageLoad();
 
@@ -113,22 +121,22 @@ function bookListByCategory(booksByCategory) {
   const lastWord = words[words.length - 1];
   let result = '';
 
-  result += `<h2 class="main-page-title">${firstPart}<span class="main-page-title-span"> ${lastWord}</span></h2>`;
-  result += '<ul class="main-page-books-render">';
+  result += `<h2 id="scroll-to-start" class="main-page-title">${firstPart}<span class="main-page-title-span"> ${lastWord}</span></h2>`;
+  result += '<ul class="main-page-books-render js-main-page-book">';
 
   booksByCategory.forEach(({ title, _id, author, book_image }) => {
     result += `
     <li class="main-page-book-render-item">
-    <div class="book-card" data-id="${_id}">
-      <div class="image-overlay" data-id="${_id}">
+    <div class="book-card">
+      <div class="image-overlay js-book-card" data-id="${_id}">
         <img class="book-image" src="${book_image}" alt="${title}" />
-        <div class="image-description" data-id="${_id}">
+        <div class="image-description"">
           <p class="image-overlay-description">quick view</p>
         </div>
       </div>
       <div class="book-details">
-        <h2 class="book-title">${title}</h2>
-        <p class="book-author">${author}</p>
+        <h2 class="main-book-title">${title}</h2>
+        <p class="main-book-author">${author}</p>
       </div>
     </div>
   </li>`;
@@ -145,6 +153,8 @@ export function renderBookListByCategory(booksByCategory) {
 }
 
 /************************************ See more **********/
+import { scrollUp } from '../scroll-up.js'
+
 function onSeeMoreBtnClick() {
   const seeMoreBtn = document.querySelectorAll('.button-see-more');
   seeMoreBtn.forEach(btn => {
@@ -153,6 +163,10 @@ function onSeeMoreBtnClick() {
       const booksByCategory = await getBookByCategory(categoryElement);
       renderBookListByCategory(booksByCategory, categoryElement);
       currentCategory(categoryElement);
+      document
+        .getElementById('scroll-to-start')
+        .scrollIntoView({ behavior: 'smooth' });
+      scrollUp();
     });
   });
 }

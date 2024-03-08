@@ -90,6 +90,7 @@ svg {
 .container {
   margin-inline: auto;
   display: flex;
+  flex-direction: column;
   padding-inline: 15px;
   max-width: 375px;
   gap: 40px;
@@ -112,6 +113,7 @@ svg {
   .container {
     max-width: 1440px;
     padding-inline: 24px;
+    flex-direction: row;
   }
 }
 

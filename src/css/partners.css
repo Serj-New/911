@@ -1,6 +1,6 @@
 .support-wrapper {
   position: relative;
-  max-width: 335px;
+  width: 335px;
   height: 460px;
   padding: 24px 40px 20px 40px;
   background: radial-gradient(
@@ -48,7 +48,9 @@
 }
 .support-swiper-btn {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -62,6 +64,9 @@
   width: 20px;
   height: 20px;
   stroke: #4f2ee8;
+}
+.partners-list {
+  display: none;
 }
 @media only screen and (min-width: 768px) {
   .support-wrapper {
@@ -83,7 +88,7 @@
 }
 @media screen and (min-width: 1440px) {
   .support-wrapper {
-    max-width: 356px;
+    width: 356px;
     padding: 24px 40px;
   }
   .support-title {
@@ -91,5 +96,8 @@
   }
   .support-swiper-btn {
     margin-top: 24px;
+  }
+  .partners-list {
+    display: block;
   }
 }

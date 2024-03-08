@@ -9,7 +9,7 @@ function showScrollUpBtn() {
   }
 }
 
-function scrollUp() {
+export function scrollUp() {
   window.scrollTo({
     top: 0,
     left: 0,

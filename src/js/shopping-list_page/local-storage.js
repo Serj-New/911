@@ -1,14 +1,5 @@
 import { getBookById } from '../home_page/books-api';
 
-// handleAddBtnClick("643282b1e85766588626a081"); //розкоментувати для додавання книжки
-// handleAddBtnClick("643282b1e85766588626a0b2"); //розкоментувати для додавання книжки
-// handleAddBtnClick("643282b2e85766588626a112"); //розкоментувати для додавання книжки
-
-// handleDelBtnClick("643282b1e85766588626a081"); //розкоментувати для видалення книжок
-// handleDelBtnClick("643282b1e85766588626a0b2"); //розкоментувати для видалення книжок
-// handleDelBtnClick("643282b2e85766588626a112"); //розкоментувати для видалення книжок
-
-
 export async function handleAddBtnClick(bookId) {
   const data = await getBookById(bookId);
   saveToLS(data._id, data);
