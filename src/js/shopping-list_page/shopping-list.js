@@ -99,7 +99,7 @@ function bookTemplate(book) {
         srcset="
         ../img/internet-shops/amazon@1x.png 1x,
         ../img/internet-shops/amazon@2x.png 2x" 
-        src="../img/internet-shops/amazon@1x.png"
+        src="/src/img/sprite.svg#icon-amazon"
         alt="Amazon logo"
         width="32"
         height="11"/></a></li>
