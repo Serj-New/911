@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { handleAddBtnClick, handleGetBtnClick, handleDelBtnClick } from './local-storage'; // видалити handleAddBtnClick
+import icon from '/src/img/sprite.svg';
 
 const refs = {
     shopListEmptElem: document.querySelector(".shop-list-empty"),
@@ -95,13 +96,13 @@ function bookTemplate(book) {
         <div class="card-footer">
         <p class="book-author">${author}</p>
         <ul class="book-shop-links">
-        <li><a href="${amazon_product_url}" target="_blank"><svg class="book-shop-img amazon-logo"><use href="./img/sprite.svg#icon-amazon"></use></svg></a></li>
-        <li><a class="book-shop-link" href="${buy_links[1].url}" target="_blank"><svg class="book-shop-img apple-books-logo"><use href="./img/sprite.svg#icon-ibooks"></use></svg></a></li>
+        <li><a href="${amazon_product_url}" target="_blank"><svg class="book-shop-img amazon-logo"><use href="${icon}#icon-amazon"></use></svg></a></li>
+        <li><a class="book-shop-link" href="${buy_links[1].url}" target="_blank"><svg class="book-shop-img apple-books-logo"><use href="${icon}#icon-ibooks"></use></svg></a></li>
         </ul>
         </div> 
         </div>
         <button class="shop-list-delete-btn"><svg class="delete-btn-icon">
-                  <use href="./img/icons.svg#icon-trash"></use>
+                  <use href="${icon}#icon-trash"></use>
                 </svg></button>
     </li>`;
 }
