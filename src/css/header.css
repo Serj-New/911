@@ -321,7 +321,7 @@ input[type='checkbox']:checked ~ .check::after {
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   .burger-container {
-    background-image: url(/img/img/menu-bg.png);
+    background-image: url(/src/img/menu-bg.png);
     background-size: contain;
   }
 }
