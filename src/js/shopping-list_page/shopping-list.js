@@ -95,13 +95,13 @@ function bookTemplate(book) {
         <div class="card-footer">
         <p class="book-author">${author}</p>
         <ul class="book-shop-links">
-        <li><a href="${amazon_product_url}" target="_blank"><svg class="book-shop-img amazon-logo"><use href="./img/sprite.svg#icon-amazon"></use></svg></a></li>
-        <li><a class="book-shop-link" href="${buy_links[1].url}" target="_blank"><svg class="book-shop-img apple-books-logo"><use href="./img/sprite.svg#icon-ibooks"></use></svg></a></li>
+        <li><a href="${amazon_product_url}" target="_blank"><svg class="book-shop-img amazon-logo"><use href=".../img/sprite.svg#icon-amazon"></use></svg></a></li>
+        <li><a class="book-shop-link" href="${buy_links[1].url}" target="_blank"><svg class="book-shop-img apple-books-logo"><use href=".../img/sprite.svg#icon-ibooks"></use></svg></a></li>
         </ul>
         </div> 
         </div>
         <button class="shop-list-delete-btn"><svg class="delete-btn-icon">
-                  <use href="../img/icons.svg#icon-trash"></use>
+                  <use href=".../img/icons.svg#icon-trash"></use>
                 </svg></button>
     </li>`;
 }
