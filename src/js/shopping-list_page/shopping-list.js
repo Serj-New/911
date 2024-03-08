@@ -1,7 +1,8 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { handleAddBtnClick, handleGetBtnClick, handleDelBtnClick } from './local-storage'; // видалити handleAddBtnClick
-import icon from '/src/img/sprite.svg';
+import icon from '../../img/sprite.svg';
+import trash from '../../img/icons.svg';
 
 const refs = {
     shopListEmptElem: document.querySelector(".shop-list-empty"),
@@ -102,7 +103,7 @@ function bookTemplate(book) {
         </div> 
         </div>
         <button class="shop-list-delete-btn"><svg class="delete-btn-icon">
-                  <use href="${icon}#icon-trash"></use>
+                  <use href="${trash}#icon-trash"></use>
                 </svg></button>
     </li>`;
 }
