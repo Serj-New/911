@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { handleAddBtnClick, handleGetBtnClick, handleDelBtnClick } from './local-storage'; // видалити handleAddBtnClick
+import { createMarkup } from '../book-modal';
 
 const refs = {
     shopListEmptElem: document.querySelector(".shop-list-empty"),
@@ -8,27 +9,9 @@ const refs = {
     paginationElem: document.getElementById("pagination"),
     pageHeader: document.querySelector(".header-home"),
 }
-        
-handleAddBtnClick("643282b1e85766588626a081"); // видалити
-handleAddBtnClick("643282b1e85766588626a0b2"); //
-handleAddBtnClick("643282b2e85766588626a112"); //
-handleAddBtnClick("643282b1e85766588626a0d4"); //
-handleAddBtnClick("643282b1e85766588626a085"); //
-handleAddBtnClick("643282b1e85766588626a0b6"); //
-handleAddBtnClick("643282b1e85766588626a087"); //
-handleAddBtnClick("643282b2e85766588626a0f2"); //
-handleAddBtnClick("643282b1e85766588626a0d2"); //
-handleAddBtnClick("643282b1e85766588626a086"); //
-handleAddBtnClick("643282b2e85766588626a116"); //
-handleAddBtnClick("643282b2e85766588626a0f4"); //
-handleAddBtnClick("643282b1e85766588626a0b4"); //
-
-function getBooks() {
-    return handleGetBtnClick();
-}
 
 const pagination = new Pagination('pagination', {
-    totalItems: getBooks().length,
+    totalItems: handleGetBtnClick().length,
     itemsPerPage: window.innerWidth < 768 ? 4 : 3, 
     visiblePages: window.innerWidth < 768 ? 2 : 3,
     centerAlign: true,
@@ -53,7 +36,7 @@ function renderWithPagination() {
         const itemsPerPage = window.innerWidth < 768 ? 4 : 3;
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
-        const booksToRender = getBooks().slice(startIndex, endIndex);
+        const booksToRender = handleGetBtnClick().slice(startIndex, endIndex);
         renderShopList(booksToRender);
     }
 }
@@ -71,7 +54,7 @@ function renderShopList(booksList) {
     });
 }
 function checkIfEmpty() {
-    if (getBooks().length === 0) {
+    if (handleGetBtnClick().length === 0) {
         refs.shopListElem.classList.add("is-hidden");
         refs.paginationElem.classList.add("is-hidden");
         refs.shopListEmptElem.classList.remove("is-hidden");
@@ -89,7 +72,7 @@ function onDeleteBtnClick(event) {
     const bookToRemove = document.getElementById(id);
     bookToRemove.parentNode.removeChild(bookToRemove);
     const userCurrentPage = pagination.getCurrentPage();
-    pagination.reset(getBooks().length);
+    pagination.reset(handleGetBtnClick().length);
     renderWithPagination();
     pagination.movePageTo(userCurrentPage);
     checkIfEmpty();
@@ -143,25 +126,3 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-const burgerModalElem = document.querySelector('.mobile-menu-container');
-const burgerMenuBtnElem = document.querySelector('.burger-menu');
-const burgerMenuCloseBtnElem = document.querySelector('.mobile-menu__button');
-
-burgerMenuBtnElem.addEventListener('click', onBurgerMenuBtnClick);
-burgerMenuCloseBtnElem.addEventListener('click', onBurgerMenuCloseBtnClick);
-
-function onBurgerMenuBtnClick(e) {
-  burgerModalElem.style.display = 'block';
-  burgerMenuBtnElem.style.display = 'none';
-}
-function onBurgerMenuCloseBtnClick(e) {
-  burgerModalElem.style.display = 'none';
-  burgerMenuBtnElem.style.display = 'block';
-}
-
-window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
-    if (!e.matches) return;
-    burgerModalElem.style.display = 'none';
-    burgerMenuCloseBtnElem.style.display = 'none';
-    burgerMenuBtnElem.style.display = 'none';
-  });

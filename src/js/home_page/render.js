@@ -63,19 +63,19 @@ function createBookListOnMain(bookCard) {
   limitedBooks.forEach(({ title, _id, author, book_image }) => {
     result += `
     <li class="main-page-book-render-item">
-    <div class="book-card" data-id="${_id}">
-      <div class="image-overlay" data-id="${_id}">
-        <img class="book-image" src="${book_image}" alt="${title}" />
-        <div class="image-description" data-id="${_id}">
-          <p class="image-overlay-description">quick view</p>
+      <div class="book-card">
+        <div class="image-overlay js-book-card" data-id="${_id}">
+          <img class="book-image" src="${book_image}" alt="${title}" />
+          <div class="image-description">
+            <p class="image-overlay-description">quick view</p>
+          </div>
+        </div>
+        <div class="book-details">
+          <h2 class="book-title">${title}</h2>
+          <p class="book-author">${author}</p>
         </div>
       </div>
-      <div class="book-details">
-        <h2 class="book-title">${title}</h2>
-        <p class="book-author">${author}</p>
-      </div>
-    </div>
-  </li>`;
+    </li>`;
   });
 
   result += `</ul><div>
@@ -99,7 +99,7 @@ export async function onPageLoad() {
     listBooksByCategory.innerHTML = '';
     let result = '';
     result += `<h2 class="main-page-title">Best Sellers <span class="main-page-title-span">Books</span></h2>
-    <ul class="main-page-book"></ul>`;
+    <ul class="main-page-book js-main-page-book"></ul>`;
     listBooksByCategory.insertAdjacentHTML('afterbegin', result);
     const topBooks = await getTopBooks();
     await renderBookListOnMain(topBooks);
@@ -119,15 +119,15 @@ function bookListByCategory(booksByCategory) {
   let result = '';
 
   result += `<h2 class="main-page-title">${firstPart}<span class="main-page-title-span"> ${lastWord}</span></h2>`;
-  result += '<ul class="main-page-books-render">';
+  result += '<ul class="main-page-books-render js-main-page-book">';
 
   booksByCategory.forEach(({ title, _id, author, book_image }) => {
     result += `
     <li class="main-page-book-render-item">
-    <div class="book-card" data-id="${_id}">
-      <div class="image-overlay" data-id="${_id}">
+    <div class="book-card">
+      <div class="image-overlay js-book-card" data-id="${_id}">
         <img class="book-image" src="${book_image}" alt="${title}" />
-        <div class="image-description" data-id="${_id}">
+        <div class="image-description"">
           <p class="image-overlay-description">quick view</p>
         </div>
       </div>
@@ -150,6 +150,8 @@ export function renderBookListByCategory(booksByCategory) {
 }
 
 /************************************ See more **********/
+import { scrollUp } from '../scroll-up.js'
+
 function onSeeMoreBtnClick() {
   const seeMoreBtn = document.querySelectorAll('.button-see-more');
   seeMoreBtn.forEach(btn => {
@@ -158,6 +160,30 @@ function onSeeMoreBtnClick() {
       const booksByCategory = await getBookByCategory(categoryElement);
       renderBookListByCategory(booksByCategory, categoryElement);
       currentCategory(categoryElement);
+      scrollUp();
     });
   });
 }
+
+// const scrollUpBtn = document.querySelector('.scroll-up');
+// console.log(scrollUpBtn);
+// scrollUpBtn.style.display = 'none';
+
+// function showScrollUpBtn() {
+//   if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+//     scrollUpBtn.style.display = 'block';
+//   } else {
+//     scrollUpBtn.style.display = 'none';
+//   }
+// }
+
+// export function scrollUp() {
+//   window.scrollTo({
+//     top: 0,
+//     left: 0,
+//     behavior: 'smooth',
+//   });
+// }
+
+// scrollUpBtn.addEventListener('click', scrollUp);
+// window.addEventListener('scroll', showScrollUpBtn);

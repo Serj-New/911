@@ -56,6 +56,18 @@
   margin-right: 8px;
 }
 
+.site-nav__link,
+.site-nav__link_active {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
 .site-nav {
   display: flex;
   gap: 7px;
@@ -94,7 +106,7 @@
   color: #fff;
 }
 
-.main-page .burger-shop-link {
+.main-page .burger-shop-link a {
   color: #fff;
 }
 
@@ -104,38 +116,6 @@
 
 .shopping-page .burger-home-link a {
   color: #fff;
-}
-
-/* .site-nav__link_active {
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  color: #111111;
-}
-
-.site-nav__link {
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.28;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-} */
-.site-nav__link,
-.site-nav__link_active {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.28571;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  color: #111;
-  display: flex;
-  align-items: center;
 }
 
 .site-nav__logo {
