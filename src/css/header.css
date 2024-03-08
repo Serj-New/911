@@ -352,6 +352,16 @@ input[type='checkbox']:checked ~ .check::after {
   margin: 0 auto;
 }
 
+.dark .mobile-menu__header {
+  background-color: #111111;
+  border: 1.5px solid #fff;
+}
+
+
+.dark .mobile-menu__icon {
+  stroke: #fff;
+}
+
 .mobile-menu__button {
   width: 28px;
   height: 28px;
@@ -387,6 +397,11 @@ input[type='checkbox']:checked ~ .check::after {
   border-radius: 18px;
   cursor: pointer;
 }
+
+.mob-menu-wrap {
+  display: flex;
+}
+
 
 
 
