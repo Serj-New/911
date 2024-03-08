@@ -321,9 +321,23 @@ input[type='checkbox']:checked ~ .check::after {
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   .burger-container {
+    background-repeat: no-repeat;
     background-size: contain;
   }
 }
+
+.burger-background {
+  position: absolute;
+  top: 500px;
+  left: -25px;
+  width: 450px;
+  height: 439px;
+  background-image: url(../img/menu-bg.png);
+  background-repeat: no-repeat;
+  z-index: -1;
+  transform: rotate(-15deg);
+}
+
 
 .mobile-menu__header {
   max-width: 375px;

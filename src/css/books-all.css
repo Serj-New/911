@@ -47,6 +47,7 @@
 
   /* overflow-x: hidden; */
   overflow-y: scroll;
+  margin-bottom: 40px;
 }
 
 .categories-container::-webkit-scrollbar {
@@ -81,6 +82,7 @@
   .categories-container {
     width: 337px;
     height: 472px;
+    margin-bottom: 0;
   }
 }
 /* desktop */
