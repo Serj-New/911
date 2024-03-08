@@ -299,6 +299,7 @@
   border-radius: 8px;
   width: 335px;
   height: 485px;
+  object-fit: cover;
 }
 
 @media screen and (min-width: 375px) {

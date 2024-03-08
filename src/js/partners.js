@@ -71,7 +71,7 @@ export function fundsMarkup() {
       const paddedIndex = (index + 1).toString().padStart(2, '0');
       return `<div class="swiper-slide ">       
       <a class="support-funds-link" href="${url}" target="_blank"
-                    rel="noopener noreferrer nofollow">
+                    rel="noopener noreferrer nofollow" aria-label="Read more about ${title}">
       <p class="support-fund-number">${paddedIndex}</p>
                 <img class="support-funds-list-link-image" src="${img}"
                     alt="${title}" 
