@@ -1,7 +1,6 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { handleAddBtnClick, handleGetBtnClick, handleDelBtnClick } from './local-storage'; // видалити handleAddBtnClick
-import { createMarkup } from '../book-modal';
 
 const refs = {
     shopListEmptElem: document.querySelector(".shop-list-empty"),
