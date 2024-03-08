@@ -23,9 +23,9 @@ window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
 
 function handleResize() {
   if (window.innerWidth <= 767) {
-    burgerMenu.style.display = 'block';
+    burgerMenuBtnElem.style.display = 'block';
   } else {
-    burgerMenu.style.display = 'none';
+    burgerMenuBtnElem.style.display = 'none';
   }
 }
 
