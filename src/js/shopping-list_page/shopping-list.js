@@ -102,7 +102,7 @@ function bookTemplate(book) {
         </ul>
         </div> 
         </div>
-        <button class="shop-list-delete-btn"><svg class="delete-btn-icon">
+        <button class="shop-list-delete-btn" aria-label="Remove book"><svg class="delete-btn-icon">
                   <use href="${trash}#icon-trash"></use>
                 </svg></button>
     </li>`;

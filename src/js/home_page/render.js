@@ -81,7 +81,7 @@ function createBookListOnMain(bookCard) {
   });
 
   result += `</ul><div>
-    <button class="button-see-more" type="button" data-catname="${catName}">See more</button>
+    <button class="button-see-more" type="button" data-catname="${catName}" aria-label="See more in category ${catName}">See more</button>
   </div>`;
   return result;
 }

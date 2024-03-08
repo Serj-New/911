@@ -38,7 +38,7 @@ function renderBooks(books) {
                 <ul class="book-links">
                     ${book.marketplaces}.map(link => <li><a href="${link}">Marketplace</a></li>).join('')}
                 </ul>
-                <button class="remove-button">Remove</button>
+                <button class="remove-button" aria-label="remove book">Remove</button>
             </div>
         `;
     bookList.appendChild(bookItem);
