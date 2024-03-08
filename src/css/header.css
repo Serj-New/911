@@ -94,6 +94,10 @@
   fill: #fff;
 }
 
+.dark.main-page .index-link a {
+  color: #000;
+}
+
 .dark.shopping-page .shop-page-link {
   color: #000;
 }
