@@ -368,6 +368,12 @@ input[type='checkbox']:checked ~ .check::after {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .burger-menu {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .header-logo-link {
     margin-right: 76px;
@@ -391,10 +397,6 @@ input[type='checkbox']:checked ~ .check::after {
     border: 1.5px solid #111111;
     border-radius: 18px;
     cursor: pointer;
-  }
-
-  .burger-menu {
-    display: none;
   }
 }
 

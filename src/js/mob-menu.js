@@ -19,4 +19,16 @@ window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
     burgerModalElem.style.display = 'none';
     burgerMenuCloseBtnElem.style.display = 'none';
     burgerMenuBtnElem.style.display = 'none';
-  });
+});
+
+function handleResize() {
+  if (window.innerWidth <= 767) {
+    burgerMenu.style.display = 'block';
+  } else {
+    burgerMenu.style.display = 'none';
+  }
+}
+
+window.addEventListener('resize', handleResize);
+
+handleResize();
