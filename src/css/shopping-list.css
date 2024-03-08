@@ -429,7 +429,7 @@
     | DARK
     |============================
   */
-.dark li {
+.dark .shop-list-item {
   background-color: #111;
 }
 .dark .shopping-list .tui-pagination .tui-page-btn {

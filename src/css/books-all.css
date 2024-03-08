@@ -489,6 +489,7 @@
   color: #000000;
   padding: 26px 52px;
   background-color: #eac645;
+  pointer-events: none;
 }
 
 .image-overlay:hover .image-overlay-description,
