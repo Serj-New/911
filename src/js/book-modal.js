@@ -59,8 +59,6 @@ function closeModal(evt) {
   }
 }
 
-let basketArr = handleGetBtnClick();
-
 const parentElem = document.querySelector('.main-page-right');
 parentElem.addEventListener('click', onClick);
 
@@ -68,7 +66,7 @@ function onClick(evt) {
   const bookCard = evt.target.parentNode;
   const bookCardId = bookCard.dataset.id;
 
-  // console.log(bookCard);
+  let basketArr = handleGetBtnClick();
 
   getBookById(bookCardId)
     .then(obj => {
