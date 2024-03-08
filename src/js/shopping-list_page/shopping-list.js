@@ -97,17 +97,17 @@ function bookTemplate(book) {
         <ul class="book-shop-links">
         <li><a href="${amazon_product_url}" target="_blank"><img class="book-shop-img amazon-logo"
         srcset="
-        img/internet-shops/amazon@1x.png 1x,
-        img/internet-shops/amazon@2x.png 2x" 
-        src="img/internet-shops/amazon@1x.png"
+        ../img/internet-shops/amazon@1x.png 1x,
+        ../img/internet-shops/amazon@2x.png 2x" 
+        src="../img/internet-shops/amazon@1x.png"
         alt="Amazon logo"
         width="32"
         height="11"/></a></li>
         <li><a class="book-shop-link" href="${buy_links[1].url}" target="_blank"><img class="book-shop-img apple-books-logo"
         srcset="
-        /img/internet-shops/book@1x.png 1x,
-        /img/internet-shops/book@2x.png 2x" 
-        src="/img/internet-shops/book@1x.png"
+        ../img/internet-shops/book@1x.png 1x,
+        ../img/internet-shops/book@2x.png 2x" 
+        src="../img/internet-shops/book@1x.png"
         alt="Apple Books logo"
         width="16"
         height="16"/></a></li>
@@ -115,7 +115,7 @@ function bookTemplate(book) {
         </div> 
         </div>
         <button class="shop-list-delete-btn"><svg class="delete-btn-icon">
-                  <use href="/img/icons.svg#icon-trash"></use>
+                  <use href="../img/icons.svg#icon-trash"></use>
                 </svg></button>
     </li>`;
 }
