@@ -11,9 +11,9 @@ import{h as l,e as u}from"./assets/local-storage-a95f5bc3.js";import{P as k}from
         <ul class="book-shop-links">
         <li><a href="${g}" target="_blank"><img class="book-shop-img amazon-logo"
         srcset="
-        /img/internet-shops/amazon@1x.png 1x,
-        /img/internet-shops/amazon@2x.png 2x" 
-        src="/img/internet-shops/amazon@1x.png"
+        img/internet-shops/amazon@1x.png 1x,
+        img/internet-shops/amazon@2x.png 2x" 
+        src="img/internet-shops/amazon@1x.png"
         alt="Amazon logo"
         width="32"
         height="11"/></a></li>
