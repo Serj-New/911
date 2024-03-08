@@ -91,8 +91,6 @@
 
 /* mobile */
 .categories-list {
-  height: 18px;
-
   font-size: 15px;
   color: var(--category);
   font-weight: 400;
@@ -127,9 +125,6 @@
 /* tablet & desktop */
 @media only screen and (min-width: 768px) {
   .categories-list {
-    /* gap: 32px; */
-
-    height: 24px;
     font-size: 15px;
     line-height: 1.33;
     letter-spacing: -0.36px;
@@ -285,8 +280,12 @@
 }
 
 .book-card {
-  width: 335px;
+  width: 290px;
   cursor: pointer;
+}
+
+.main-page-book-render-item {
+  width: 290px;
 }
 
 .main-page-books-render {
@@ -321,6 +320,11 @@
 }
 
 @media screen and (min-width: 375px) {
+  .book-card {
+    width: 335px;
+    cursor: pointer;
+  }
+
   .main-page-right {
     max-width: 375px;
   }
