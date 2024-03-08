@@ -9,13 +9,13 @@ import{h as l,e as u}from"./assets/local-storage-45b89ab4.js";import{P as v}from
         <div class="card-footer">
         <p class="book-author">${g}</p>
         <ul class="book-shop-links">
-        <li><a href="${p}" target="_blank"><svg class="book-shop-img amazon-logo"><use href=".../img/sprite.svg#icon-amazon"></use></svg></a></li>
-        <li><a class="book-shop-link" href="${h[1].url}" target="_blank"><svg class="book-shop-img apple-books-logo"><use href=".../img/sprite.svg#icon-ibooks"></use></svg></a></li>
+        <li><a href="${p}" target="_blank"><svg class="book-shop-img amazon-logo"><use href="./img/sprite.svg#icon-amazon"></use></svg></a></li>
+        <li><a class="book-shop-link" href="${h[1].url}" target="_blank"><svg class="book-shop-img apple-books-logo"><use href="./img/sprite.svg#icon-ibooks"></use></svg></a></li>
         </ul>
         </div> 
         </div>
         <button class="shop-list-delete-btn"><svg class="delete-btn-icon">
-                  <use href=".../img/icons.svg#icon-trash"></use>
+                  <use href="./img/icons.svg#icon-trash"></use>
                 </svg></button>
     </li>`}window.addEventListener("DOMContentLoaded",e=>{o.pageHeader.dataset.pageName="shopping-list"});
 //# sourceMappingURL=commonHelpers2.js.map
