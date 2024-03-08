@@ -359,6 +359,12 @@
     | PAGINATION
     |============================
   */
+.shop-list-section .tui-pagination {
+  box-sizing: border-box;
+  margin-bottom: 40px;
+  height: 44px;
+}
+
 .shopping-list .tui-pagination.is-hidden {
   display: none;
 }
