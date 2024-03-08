@@ -214,9 +214,15 @@
 }
 .book-shop-links {
   display: flex;
-  gap: 8px;
+  gap: 8px;  
   align-items: end;
 }
+
+.book-shop-links a {
+  padding: 0;width: 32px;
+  height: 11px;
+}
+
 .book-shop-img {
   filter: grayscale(100%);
   mix-blend-mode: luminosity;
@@ -228,6 +234,10 @@
 .amazon-logo {
   width: 32px;
   height: 11px;
+}
+
+.dark .amazon-logo {
+  fill: #fff;
 }
 .apple-books-logo {
   width: 16px;

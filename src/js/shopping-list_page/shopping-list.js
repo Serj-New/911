@@ -95,22 +95,8 @@ function bookTemplate(book) {
         <div class="card-footer">
         <p class="book-author">${author}</p>
         <ul class="book-shop-links">
-        <li><a href="${amazon_product_url}" target="_blank"><img class="book-shop-img amazon-logo"
-        srcset="
-        ../img/internet-shops/amazon@1x.png 1x,
-        ../img/internet-shops/amazon@2x.png 2x" 
-        src="/src/img/sprite.svg#icon-amazon"
-        alt="Amazon logo"
-        width="32"
-        height="11"/></a></li>
-        <li><a class="book-shop-link" href="${buy_links[1].url}" target="_blank"><img class="book-shop-img apple-books-logo"
-        srcset="
-        ../img/internet-shops/book@1x.png 1x,
-        ../img/internet-shops/book@2x.png 2x" 
-        src="../img/internet-shops/book@1x.png"
-        alt="Apple Books logo"
-        width="16"
-        height="16"/></a></li>
+        <li><a href="${amazon_product_url}" target="_blank"><svg class="book-shop-img amazon-logo"><use href="./img/sprite.svg#icon-amazon"></use></svg></a></li>
+        <li><a class="book-shop-link" href="${buy_links[1].url}" target="_blank"><svg class="book-shop-img apple-books-logo"><use href="./img/sprite.svg#icon-ibooks"></use></svg></a></li>
         </ul>
         </div> 
         </div>

@@ -4,7 +4,7 @@
     background-color: #fff;
     border: 2px solid #111;
     border-radius: 18px;
-    padding: 40px 24px;
+    padding: 38px 24px;
 }
 @media screen and (min-width: 768px) {
     .book-modal {
@@ -12,7 +12,7 @@
         flex-wrap: wrap;
         width: 579px;
         min-height: 465px;
-        padding: 40px 40px;
+        padding: 38px;
    }
 }
 @media screen and (min-width: 768px) {
@@ -145,7 +145,8 @@ body.dark-theme .icon-book-modal-list {
 }
 @media screen and (min-width: 768px) {
     .book-modal-btn.js-add {
-        padding: 20px 146px;
+        width: 100%;
+        padding: 20px 146.5px;
    }
 }
 @media screen and (min-width: 768px) {
